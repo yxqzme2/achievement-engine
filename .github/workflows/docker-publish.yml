@@ -1,0 +1,45 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:  # allows manual trigger from GitHub UI
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push achievement-engine
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ github.repository_owner }}/achievement-engine:latest
+            ${{ env.REGISTRY }}/${{ github.repository_owner }}/achievement-engine:${{ github.sha }}
+
+      - name: Build and push abs-stats
+        uses: docker/build-push-action@v5
+        with:
+          context: ./abs-stats
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ github.repository_owner }}/abs-stats:latest
+            ${{ env.REGISTRY }}/${{ github.repository_owner }}/abs-stats:${{ github.sha }}

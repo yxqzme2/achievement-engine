@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>abs-stats</Name>
+  <Repository>ghcr.io/yxqzme2/abs-stats:latest</Repository>
+  <Registry>https://github.com/yxqzme2/achievement-engine/pkgs/container/abs-stats</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/yxqzme2/achievement-engine/issues</Support>
+  <Project>https://github.com/yxqzme2/achievement-engine</Project>
+  <Overview>Companion service for Achievement Engine. Connects to your Audiobookshelf server, aggregates listening data (completions, sessions, series, listening time), and exposes it as a simplified REST API that the Achievement Engine polls.&#xD;
+&#xD;
+This container is REQUIRED for the Achievement Engine to function. It acts as a bridge between your Audiobookshelf instance and the achievement system.&#xD;
+&#xD;
+You will need an Audiobookshelf API token for each user you want to track. Get tokens from: Audiobookshelf &gt; Settings &gt; Users &gt; [user] &gt; API Token.</Overview>
+  <Category>MediaApp:Other Tools:</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/yxqzme2/unraid-docker-templates/main/abs-stats.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/yxqzme2/achievement-engine/main/icons/favicon.ico</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>Audiobookshelf must be running and accessible from this server. You need API tokens for each user you want to track.</Requires>
+  <Config Name="API Port" Target="3000" Default="3000" Mode="tcp" Description="The port abs-stats listens on. Other containers (like Achievement Engine) connect to this port to fetch listening data. Change the host port if 3000 is already in use." Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="ABS_URL" Target="ABS_URL" Default="http://audiobookshelf:13378" Mode="" Description="The full URL of your Audiobookshelf server, including the port. Example: http://192.168.1.50:13378 or http://audiobookshelf:80 if using Docker networking." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="ABS_TOKEN" Target="ABS_TOKEN" Default="" Mode="" Description="A single Audiobookshelf API token. Use this for single-user setups. Get it from: Audiobookshelf > Settings > Users > your user > API Token. If you have multiple users, use ABS_TOKENS instead and leave this empty." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="ABS_TOKENS" Target="ABS_TOKENS" Default="" Mode="" Description="Multi-user API tokens. Format: username1:token1,username2:token2 — one entry per user you want to track. Each user needs their own API token from Audiobookshelf (Settings > Users > [user] > API Token). The username must match the Audiobookshelf username exactly. Leave empty if using ABS_TOKEN for single-user mode." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="ENGINE_URL" Target="ENGINE_URL" Default="http://achievement-engine:8000" Mode="" Description="Internal URL of the Achievement Engine container. Used for proxying API requests. If both containers are on the same Docker network, use the container name (e.g. http://achievement-engine:8000). Only change this if you renamed the Achievement Engine container or use a custom network." Type="Variable" Display="always" Required="true" Mask="false">http://achievement-engine:8000</Config>
+  <Config Name="ALLOWED_USERNAMES" Target="ALLOWED_USERNAMES" Default="*" Mode="" Description="Comma-separated list of Audiobookshelf usernames to track. Only these users will appear in the achievement system. Set to * (asterisk) or leave empty to track ALL users. Example: alice,bob,charlie" Type="Variable" Display="always" Required="false" Mask="false">*</Config>
+  <Config Name="DISCORD_WEBHOOK_URL" Target="DISCORD_WEBHOOK_URL" Default="" Mode="" Description="Discord webhook URL for posting achievement notifications. Create a webhook in your Discord server: Channel Settings > Integrations > Webhooks > New Webhook > Copy Webhook URL. Leave empty to disable Discord notifications." Type="Variable" Display="always" Required="false" Mask="true"/>
+</Container>

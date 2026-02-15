@@ -40,6 +40,9 @@ data/achievements.points.cleaned.json
 # Backup copies
 *- Copy*
 
+# Original Unraid templates (contain secrets)
+Unraid engine/
+
 # OS
 .DS_Store
 Thumbs.db

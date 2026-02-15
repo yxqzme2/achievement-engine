@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>achievement-engine</Name>
+  <Repository>ghcr.io/yxqzme2/achievement-engine:latest</Repository>
+  <Registry>https://github.com/yxqzme2/achievement-engine/pkgs/container/achievement-engine</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/yxqzme2/achievement-engine/issues</Support>
+  <Project>https://github.com/yxqzme2/achievement-engine</Project>
+  <Overview>Achievement/trophy system for Audiobookshelf. Automatically awards achievements based on listening activity — books finished, series completed, listening streaks, social overlap, and more.&#xD;
+&#xD;
+Features 50+ achievements across categories including milestones, series completion, social overlap, duration, behavior, and streaks. Includes a built-in web dashboard with leaderboard and timeline views.&#xD;
+&#xD;
+REQUIRES the abs-stats companion container to be running and connected to your Audiobookshelf server. Install abs-stats first.</Overview>
+  <Category>MediaApp:Other Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/yxqzme2/unraid-docker-templates/main/achievement-engine.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/yxqzme2/achievement-engine/main/icons/favicon.ico</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>The abs-stats companion container must be installed and running. It connects to your Audiobookshelf server and provides the listening data that this engine evaluates for achievements.</Requires>
+  <Config Name="Dashboard Port" Target="8000" Default="8000" Mode="tcp" Description="Web dashboard port. Access the achievement dashboard, leaderboard, and timeline at http://your-server-ip:8000. Change the host port if 8000 is already in use." Type="Port" Display="always" Required="true" Mask="false">8000</Config>
+  <Config Name="Data Path" Target="/data" Default="/mnt/user/appdata/achievement-engine" Mode="rw" Description="Persistent data directory. Stores the SQLite database (state.db) with all awarded achievements, and the achievement definitions file (achievements.points.json). Back up this directory to preserve your achievement history." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/achievement-engine</Config>
+  <Config Name="ABSSTATS_BASE_URL" Target="ABSSTATS_BASE_URL" Default="http://abs-stats:3000" Mode="" Description="Internal URL of the abs-stats companion container. If both containers are on the same Docker network, use the container name (e.g. http://abs-stats:3000). Only change this if you renamed the abs-stats container, use a custom network, or run abs-stats on a different port." Type="Variable" Display="always" Required="true" Mask="false">http://abs-stats:3000</Config>
+  <Config Name="POLL_SECONDS" Target="POLL_SECONDS" Default="300" Mode="" Description="How often (in seconds) the engine checks for new achievements. Default is 300 (5 minutes). Lower values mean faster achievement detection but more API calls to your Audiobookshelf server. Recommended range: 60-600." Type="Variable" Display="always" Required="false" Mask="false">300</Config>
+  <Config Name="ACHIEVEMENTS_PATH" Target="ACHIEVEMENTS_PATH" Default="/data/achievements.points.json" Mode="" Description="Path to the achievements definition JSON file inside the container. This file defines all available achievements, their triggers, point values, and icons. The engine re-reads this file on each poll cycle, so changes take effect without a restart." Type="Variable" Display="advanced" Required="false" Mask="false">/data/achievements.points.json</Config>
+  <Config Name="STATE_DB_PATH" Target="STATE_DB_PATH" Default="/data/state.db" Mode="" Description="Path to the SQLite database file inside the container. Stores all awarded achievements permanently — the engine only ever adds new awards, never removes them. Located inside your Data Path volume so it persists across container updates." Type="Variable" Display="advanced" Required="false" Mask="false">/data/state.db</Config>
+  <Config Name="TZ" Target="TZ" Default="America/New_York" Mode="" Description="Your timezone. Used for time-based achievements like 'Late Night Listener' (listening past 2 AM) and 'Early Bird' (listening before 6 AM). Use standard timezone names from: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
+  <Config Name="DISCORD_PROXY_URL" Target="DISCORD_PROXY_URL" Default="" Mode="" Description="URL for sending Discord notifications through the abs-stats proxy. If you configured a Discord webhook in abs-stats, set this to http://abs-stats:3000/api/discord-notify (using your abs-stats container name). Leave empty to disable Discord notifications from the engine." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="USER_ALIASES" Target="USER_ALIASES" Default="" Mode="" Description="Display-friendly names for the dashboard. Maps Audiobookshelf usernames to the names shown on the leaderboard and timeline. Format: absuser1:Display Name,absuser2:Display Name. Example: mrlarue77:Daniel,mrlarue70:Darrell. Leave empty to show raw Audiobookshelf usernames." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="USER_ICONS" Target="USER_ICONS" Default="" Mode="" Description="Custom avatar images for each user on the dashboard. Place avatar PNG files in your data directory's icons folder, then map them here. Format: absuser1:/icons/avatar1.png,absuser2:/icons/avatar2.png. Leave empty for default avatars." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="SMTP_HOST" Target="SMTP_HOST" Default="" Mode="" Description="SMTP server hostname for email notifications. Examples: smtp.mailgun.org, smtp.gmail.com, smtp.sendgrid.net. Leave empty to disable email notifications entirely. I recommend Mailgun (mailgun.com) for easy setup — the free tier includes 1,000 emails/month." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="SMTP_PORT" Target="SMTP_PORT" Default="587" Mode="" Description="SMTP server port. Common values: 587 (TLS/STARTTLS, recommended), 465 (SSL), 25 (unencrypted, not recommended). Most providers use 587." Type="Variable" Display="always" Required="false" Mask="false">587</Config>
+  <Config Name="SMTP_USERNAME" Target="SMTP_USERNAME" Default="" Mode="" Description="SMTP authentication username. For Mailgun, this is typically postmaster@your-domain.com. For Gmail, this is your full email address. Check your email provider's SMTP documentation for the correct value." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="SMTP_PASSWORD" Target="SMTP_PASSWORD" Default="" Mode="" Description="SMTP authentication password. For Mailgun, use the SMTP password from your domain's SMTP credentials page. For Gmail, use an App Password (not your regular password). This value is masked for security." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="SMTP_FROM" Target="SMTP_FROM" Default="" Mode="" Description="The 'From' address and display name on notification emails. Format: Display Name email@domain.com. Example: The System achievements@your-domain.com. The email address must be authorized to send from your SMTP provider." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="USER_EMAILS" Target="USER_EMAILS" Default="" Mode="" Description="Per-user email addresses for achievement notifications. Each user receives an email when they earn a new achievement. Format: absuser1:user1@email.com,absuser2:user2@email.com. The usernames must match your Audiobookshelf usernames exactly." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="SMTP_TO_OVERRIDE" Target="SMTP_TO_OVERRIDE" Default="" Mode="" Description="Testing mode: redirect ALL notification emails to this single address instead of individual user emails. Useful for verifying email delivery without notifying all users. Clear this value (leave empty) to resume sending to individual user addresses." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="SEND_TEST_EMAIL" Target="SEND_TEST_EMAIL" Default="false" Mode="" Description="Set to 'true' to send a test email when the container starts. Useful for verifying your SMTP configuration is correct. Set back to 'false' after confirming emails work to avoid sending a test email on every restart." Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+</Container>
