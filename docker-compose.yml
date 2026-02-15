@@ -9,14 +9,12 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - ABS_URL=http://your-audiobookshelf:13378   # <-- your Audiobookshelf URL
-      - ABS_TOKEN=your-abs-api-token               # <-- your ABS API token
       - ENGINE_URL=http://achievement-engine:8000
-      # Optional: comma-separated list of usernames to include (omit or set "*" for all)
-      # - ALLOWED_USERNAMES=*
-      # Optional: per-user tokens for multi-user support
+      # Set these in docker-compose.override.yml (created by setup.sh) or uncomment here:
+      # - ABS_URL=http://your-audiobookshelf:13378
+      # - ABS_TOKEN=your-abs-api-token
       # - ABS_TOKENS=user1:token1,user2:token2
-      # Optional: Discord webhook URL for notification proxy
+      # - ALLOWED_USERNAMES=*
       # - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
     restart: unless-stopped
 
