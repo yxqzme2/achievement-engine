@@ -176,10 +176,11 @@ async function absStream(apiPath, res, token = ABS_TOKEN) {
 async function getListeningSessions(userId, opts = {}) {
   const itemsPerPage = opts.itemsPerPage || 200;
   const maxPages = opts.maxPages || 25;
+  const token = opts.token || ABS_TOKEN;
   let page = 0;
   let all = [];
   while (page < maxPages) {
-    const data = await absJson(`/api/users/${encodeURIComponent(userId)}/listening-sessions?itemsPerPage=${itemsPerPage}&page=${page}`);
+    const data = await absJson(`/api/users/${encodeURIComponent(userId)}/listening-sessions?itemsPerPage=${itemsPerPage}&page=${page}`, token);
     const sessions = Array.isArray(data?.sessions) ? data.sessions : [];
     if (!sessions.length) break;
     all = all.concat(sessions);
