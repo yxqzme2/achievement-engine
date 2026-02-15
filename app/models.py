@@ -1,5 +1,14 @@
 from typing import List, Optional, Set, Dict, Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+
+
+def _coerce_to_list(v):
+    """Accept a string, list, or None and always return a list of non-empty strings."""
+    if v is None:
+        return []
+    if isinstance(v, str):
+        return [v] if v.strip() else []
+    return [s for s in v if isinstance(s, str) and s.strip()]
 
 
 class Achievement(BaseModel):
@@ -18,6 +27,11 @@ class Achievement(BaseModel):
     # Fields for rarity and keywords
     rarity: str = "Common"
     keywords_any: List[str] = Field(default_factory=list)
+
+    @field_validator("tags", "keywords_any", mode="before")
+    @classmethod
+    def coerce_list(cls, v):
+        return _coerce_to_list(v)
 
     class Config:
         extra = "ignore"
