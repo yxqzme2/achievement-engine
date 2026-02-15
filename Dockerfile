@@ -18,6 +18,12 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Copy your app code
 COPY app /app/app
 
+# Copy HTML dashboard files and favicon
+COPY dashboard.html /data/dashboard.html
+COPY leaderboard.html /data/leaderboard.html
+COPY timeline.html /data/timeline.html
+COPY icons/favicon.ico /data/icons/favicon.ico
+
 # Default runtime envs (override in Unraid)
 ENV POLL_SECONDS=300 \
     ACHIEVEMENTS_PATH=/data/achievements.points.json \

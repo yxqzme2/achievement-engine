@@ -30,9 +30,6 @@ services:
     volumes:
       - ./data:/data
       - ./icons:/data/icons
-      - ./dashboard.html:/data/dashboard.html:ro
-      - ./leaderboard.html:/data/leaderboard.html:ro
-      - ./timeline.html:/data/timeline.html:ro
     env_file:
       - .env
     depends_on:
