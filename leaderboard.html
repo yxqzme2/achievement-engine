@@ -343,6 +343,160 @@
         .tt-name { color: #f7d16d; font-family: var(--font-title); font-weight: 700; font-size: 0.9rem; }
         .tt-flavor { color: #aaa; font-style: italic; margin-top: 3px; }
         .tt-pts { color: #cd7f32; margin-top: 4px; }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+                align-items: flex-start;
+            }
+            .layout-anchor {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+            }
+            .main-window {
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            /* Nav bar */
+            .nav-bar {
+                padding: 10px 15px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .nav-title { font-size: 0.9rem; }
+            .nav-bar a { font-size: 0.8rem; padding: 4px 10px; }
+
+            /* Header */
+            .content-header {
+                padding: 15px;
+            }
+            .content-header h1 { font-size: 1.5rem; }
+            .subtitle { font-size: 0.8rem; }
+
+            /* Scroll area */
+            .scroll-container {
+                padding: 15px 12px;
+            }
+
+            /* Podium mobile */
+            .podium {
+                gap: 8px;
+                margin-bottom: 25px;
+                padding: 10px 0;
+            }
+            .podium-avatar {
+                width: 50px !important;
+                height: 50px !important;
+            }
+            .podium-slot.rank-1 .podium-avatar {
+                width: 60px !important;
+                height: 60px !important;
+                border-width: 3px;
+            }
+            .podium-slot.rank-2 .podium-avatar {
+                width: 52px !important;
+                height: 52px !important;
+                border-width: 2px;
+            }
+            .podium-slot.rank-3 .podium-avatar {
+                width: 46px !important;
+                height: 46px !important;
+                border-width: 2px;
+            }
+            .podium-name { font-size: 0.8rem; }
+            .podium-points { font-size: 1.1rem; }
+            .podium-badge { font-size: 1rem; }
+            .podium-pedestal {
+                width: 90px;
+                font-size: 1.3rem;
+            }
+            .rank-1 .podium-pedestal { height: 80px; }
+            .rank-2 .podium-pedestal { height: 60px; }
+            .rank-3 .podium-pedestal { height: 45px; }
+
+            /* Stats table → card layout on mobile */
+            .stats-table thead { display: none; }
+            .stats-table, .stats-table tbody, .stats-table tr, .stats-table td {
+                display: block;
+                width: 100%;
+            }
+            .stats-table tr {
+                background: rgba(255,255,255,0.35);
+                border: 1px solid rgba(0,0,0,0.08);
+                border-radius: 6px;
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+            .stats-table td {
+                padding: 4px 0;
+                border-bottom: none;
+            }
+            .stats-table tr:hover td {
+                background: none;
+            }
+
+            /* Rank cell */
+            .rank-cell {
+                position: absolute;
+                right: 12px;
+                top: 12px;
+                width: auto;
+                font-size: 1.5rem;
+            }
+            .stats-table tr {
+                position: relative;
+            }
+
+            /* User cell */
+            .user-cell {
+                margin-bottom: 6px;
+            }
+            .table-avatar { width: 36px; height: 36px; }
+            .table-username { font-size: 0.95rem; }
+
+            /* Stats inline */
+            .stat-value { font-size: 0.95rem; }
+            .stats-table td[style*="text-align:center"] {
+                display: inline-block;
+                width: auto;
+                padding: 2px 8px;
+                text-align: left !important;
+            }
+            .stats-table td[style*="text-align:center"]::before {
+                font-size: 0.7rem;
+                color: var(--ink-muted);
+                margin-right: 4px;
+            }
+
+            /* Rarity bar */
+            .rarity-bar { width: 100%; margin: 6px 0; }
+
+            /* Recent achievements */
+            .stats-table td[style*="max-width"] {
+                max-width: 100% !important;
+            }
+            .recent-ach {
+                font-size: 0.75rem;
+                padding: 3px 8px;
+            }
+            .recent-ach-icon { width: 18px; height: 18px; }
+
+            /* Tooltip mobile */
+            .tt {
+                position: fixed;
+                top: auto !important;
+                bottom: 20px !important;
+                left: 50% !important;
+                transform: translateX(-50%);
+                max-width: 280px;
+            }
+        }
     </style>
 </head>
 <body>
