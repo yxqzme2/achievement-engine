@@ -280,11 +280,18 @@ app.get("/api/users", async (req, res) => {
     const activeUsers = users.filter(u => u?.id && u?.username).filter(u => !allowed || allowed.has(u.username));
     const out = [];
 
+    // Build a map of userId -> token from ABS_TOKENS for per-user API calls
+    const userTokens = parseUserTokens();
+    const usernameToToken = new Map(userTokens.map(ut => [ut.username, ut.token]));
+
     for (const u of activeUsers) {
+      // Use the user's own token if available, otherwise fall back to ABS_TOKEN
+      const userToken = usernameToToken.get(u.username) || ABS_TOKEN;
+
       let lifetimeMinutes = 0;
       let topAuthorLifetime = null;
       try {
-        const stats = await absJson(`/api/users/${encodeURIComponent(u.id)}/listening-stats`);
+        const stats = await absJson(`/api/users/${encodeURIComponent(u.id)}/listening-stats`, userToken);
         lifetimeMinutes = toMinutesFromSeconds(stats?.totalTime ?? 0);
         const items = stats?.items && typeof stats.items === "object" ? stats.items : {};
         const authorSeconds = new Map();
@@ -304,7 +311,7 @@ app.get("/api/users", async (req, res) => {
 
       let sessions = [];
       try {
-        sessions = await getListeningSessions(u.id, { itemsPerPage: 200, maxPages: 25 });
+        sessions = await getListeningSessions(u.id, { itemsPerPage: 200, maxPages: 25, token: userToken });
       } catch {
         sessions = [];
       }
@@ -715,7 +722,7 @@ app.get("/api/listening-sessions", async (req, res) => {
         userTokens.map(async ({ username: label, token }) => {
           const me = await absJson("/api/me", token);
           const userId = me?.id || null;
-          const sessionsRaw = userId ? await getListeningSessions(userId) : [];
+          const sessionsRaw = userId ? await getListeningSessions(userId, { token }) : [];
           const sessions = sessionsRaw.map((s) => ({
             id: s.id || s.sessionId || null,
             libraryItemId: s.libraryItemId || s.library_item_id || s.mediaItemId || null,
@@ -742,7 +749,7 @@ app.get("/api/listening-sessions", async (req, res) => {
 
     const me = await absJson("/api/me");
     const userId = me?.id || null;
-    const sessionsRaw = userId ? await getListeningSessions(userId) : [];
+    const sessionsRaw = userId ? await getListeningSessions(userId, { token: ABS_TOKEN }) : [];
     const sessions = sessionsRaw.map((s) => ({
       id: s.id || s.sessionId || null,
       libraryItemId: s.libraryItemId || s.library_item_id || s.mediaItemId || null,
