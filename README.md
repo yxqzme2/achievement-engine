@@ -142,6 +142,30 @@ Edit `data/achievements.points.json` to add, remove, or modify achievements. Eac
 
 The engine re-reads the file on each evaluation cycle, so changes take effect without a restart.
 
+### Creating Achievements with the CSV Template
+
+The easiest way to create new achievements is with the included `AchBuilder.csv`:
+
+1. Open `AchBuilder.csv` in Excel, Google Sheets, or any spreadsheet editor
+2. Add rows with your achievements — columns are `title`, `achievement`, `flavorText`, `trigger`, `id`, `category`, `tags`, `points`, `iconPath`, `rarity`
+3. Export/convert the CSV to JSON (any CSV-to-JSON tool works, e.g. [csvjson.com](https://csvjson.com/csv2json))
+4. Save the result as `data/achievements.points.json`
+
+The included CSV contains all 50+ default achievements as examples.
+
+### Validating Achievements
+
+Open `achievement-tester.html` in any browser to validate your achievements before deploying. It checks that:
+
+- The `trigger` wording will be parsed correctly by the evaluator for the chosen `category`
+- Required fields are filled in
+- The `category` is valid
+- The `rarity` and `points` are reasonable
+
+This catches trigger-parsing issues without needing to run the full engine.
+
+For a detailed reference on how each category's trigger parsing works, see [achievements.md](achievements.md).
+
 ## Adding User Avatars
 
 Place avatar images in the `icons/` directory and map them in your `.env`:
