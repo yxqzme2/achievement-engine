@@ -127,6 +127,67 @@ Omit it or set `ALLOWED_USERNAMES=*` to track all users.
 | `DISCORD_WEBHOOK_URL` | *(empty)* | Discord webhook URL for notification proxy |
 | `PORT` | `3000` | Port to listen on |
 
+## Setting Up Notifications
+
+### Discord Notifications
+
+The engine can post rich embeds to a Discord channel whenever an achievement is earned.
+
+**What you need before setup:**
+- A Discord server you have admin access to
+- A channel where you want achievement notifications posted
+
+**Creating a Discord webhook:**
+
+1. Open your Discord server and go to the channel you want notifications in
+2. Click the gear icon (Edit Channel) > **Integrations** > **Webhooks**
+3. Click **New Webhook**
+4. Give it a name (e.g. "Achievement Engine") and optionally set an avatar
+5. Click **Copy Webhook URL** — it will look like `https://discord.com/api/webhooks/1234567890/abcdefg...`
+6. Save this URL — you'll paste it during `./setup.sh` when prompted for the Discord webhook URL
+
+### Email Notifications
+
+The engine can send email alerts when achievements are earned. Any SMTP provider works. I recommend [Mailgun](https://www.mailgun.com/) for ease of setup — the free tier includes 1,000 emails/month which is more than enough for achievement notifications.
+
+**What you need before setup:**
+- An SMTP server hostname, port, username, and password
+- A "from" email address
+- Each user's email address (for per-user notifications)
+
+**Setting up Mailgun (recommended):**
+
+1. Sign up at [mailgun.com](https://www.mailgun.com/) (free tier available)
+2. Add and verify your domain (or use the sandbox domain for testing)
+3. Go to **Sending** > **Domain settings** > **SMTP credentials**
+4. Note your SMTP details:
+   - **SMTP host:** `smtp.mailgun.org`
+   - **SMTP port:** `587`
+   - **SMTP username:** your Mailgun SMTP username (e.g. `postmaster@your-domain.com`)
+   - **SMTP password:** your Mailgun SMTP password
+5. Set your "from" address to match your verified domain (e.g. `achievements@your-domain.com`)
+
+During `./setup.sh`, you'll be prompted for these values. You can also set them manually in `.env`:
+
+```env
+SMTP_HOST=smtp.mailgun.org
+SMTP_PORT=587
+SMTP_USERNAME=postmaster@your-domain.com
+SMTP_PASSWORD=your-mailgun-smtp-password
+SMTP_FROM=achievements@your-domain.com
+USER_EMAILS=alice:alice@example.com,bob:bob@example.com
+```
+
+**Testing emails:**
+
+The setup script offers an `SMTP_TO_OVERRIDE` option that redirects all notification emails to a single address. This is useful for testing — you can verify emails are working without spamming all your users. To disable it later, clear the value in `.env`:
+
+```env
+SMTP_TO_OVERRIDE=
+```
+
+You can also set `SEND_TEST_EMAIL=true` in `.env` to send a test email on startup, then set it back to `false`.
+
 ## Customizing Achievements
 
 Edit `data/achievements.points.json` to add, remove, or modify achievements. Each achievement has:
