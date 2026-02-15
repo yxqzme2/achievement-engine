@@ -110,7 +110,7 @@ import json
 from fastapi import HTTPException
 from fastapi.responses import FileResponse
 
-DASHBOARD_PATH = "/data/dashboard.html"
+DASHBOARD_PATH = "/app/static/dashboard.html"
 ACHIEVEMENTS_JSON_PATH = "/data/achievements.points.json"
 ICONS_DIR = "/data/icons"
 
@@ -274,14 +274,14 @@ def read_dashboard():
     if not os.path.exists(DASHBOARD_PATH):
         raise HTTPException(status_code=404, detail=f"Missing {DASHBOARD_PATH}")
     return FileResponse(DASHBOARD_PATH)
-LEADERBOARD_PATH = "/data/leaderboard.html"
+LEADERBOARD_PATH = "/app/static/leaderboard.html"
 
 @app.get("/leaderboard")
 def read_leaderboard():
     if not os.path.exists(LEADERBOARD_PATH):
         raise HTTPException(status_code=404, detail=f"Missing {LEADERBOARD_PATH}")
     return FileResponse(LEADERBOARD_PATH)
-TIMELINE_PATH = "/data/timeline.html"
+TIMELINE_PATH = "/app/static/timeline.html"
 
 @app.get("/timeline")
 def read_timeline():

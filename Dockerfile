@@ -18,11 +18,10 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Copy your app code
 COPY app /app/app
 
-# Copy HTML dashboard files and favicon
-COPY dashboard.html /data/dashboard.html
-COPY leaderboard.html /data/leaderboard.html
-COPY timeline.html /data/timeline.html
-COPY icons/favicon.ico /data/icons/favicon.ico
+# Copy HTML dashboard files
+COPY dashboard.html /app/static/dashboard.html
+COPY leaderboard.html /app/static/leaderboard.html
+COPY timeline.html /app/static/timeline.html
 
 # Default runtime envs (override in Unraid)
 ENV POLL_SECONDS=300 \
