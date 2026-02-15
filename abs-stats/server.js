@@ -13,7 +13,16 @@ const app = express();
 
 const PORT = Number(process.env.PORT || 3000);
 const ABS_URL = String(process.env.ABS_URL || "http://audiobookshelf:80").replace(/\/+$/, "");
-const ABS_TOKEN = process.env.ABS_TOKEN;
+const ABS_TOKEN = process.env.ABS_TOKEN || (() => {
+  // Fall back to the first token from ABS_TOKENS if ABS_TOKEN isn't set
+  const raw = process.env.ABS_TOKENS || "";
+  const first = raw.split(",").map(s => s.trim()).filter(Boolean)[0];
+  if (first) {
+    const idx = first.indexOf(":");
+    return idx > -1 ? first.slice(idx + 1).trim() : first;
+  }
+  return undefined;
+})();
 
 // ADDRESS OF THE PYTHON ACHIEVEMENT ENGINE
 // If running in Docker Bridge mode, change "localhost" to your container name
