@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Listener's Journal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --window-bg: #e8dbc3;
+            --sidebar-bg: #dccaa5;
+            --border-color: #4a3b2a;
+            --gold-accent: #b89548;
+            --ink: #2b2018;
+            --ink-muted: #665243;
+            
+            /* Tab Colors */
+            --tab-bg: #3d2f24; 
+            --tab-text: #a89582;
+            --tab-hover: #4f3d2f;
+            
+            /* Rarity Colors */
+            --r-all: #555555;        /* Neutral Grey for All */
+            --r-common: #a0a0a0;     /* Grey */
+            --r-uncommon: #3bd26f;   /* Green */
+            --r-rare: #0070dd;       /* Blue */
+            --r-epic: #a335ee;       /* Purple */
+            --r-legendary: #ff8000;  /* Orange */
+
+            --font-title: "Cinzel", serif;
+            --font-body: "Lato", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at center, #1f1f1f 0%, #050505 100%);
+            color: var(--ink);
+            font-family: var(--font-body);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- LAYOUT ANCHOR --- */
+        .layout-anchor {
+            position: relative;
+            width: 1200px;
+            height: 94vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- MAIN FRAME --- */
+        .main-window {
+            width: 100%;
+            height: 100%;
+            background: var(--window-bg);
+            border: 6px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 
+                0 0 0 2px #2a2118,
+                0 30px 80px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            position: relative; 
+            z-index: 20; 
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" stitchTiles="stitch"/></filter><rect width="200" height="200" filter="url(%23n)" opacity="0.04"/></svg>');
+        }
+
+        /* --- LEFT SIDE TABS --- */
+        .side-tabs-container {
+            position: absolute;
+            left: 0;
+            top: 60px;
+            width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .side-tab {
+            position: relative;
+            width: 190px;
+            height: 48px;
+            background: var(--tab-bg);
+            color: var(--tab-text);
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 12px;
+            box-sizing: border-box;
+            cursor: pointer;
+            border-radius: 8px 0 0 8px;
+            border: 1px solid #2a2118;
+            box-shadow: -4px 4px 10px rgba(0,0,0,0.5);
+            left: -55px; 
+            transition: left 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.2s;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
+        }
+
+        .side-tab-icon {
+            font-size: 1.4rem;
+            min-width: 35px;
+            text-align: center;
+            margin-right: 12px;
+            z-index: 2;
+        }
+        
+        .side-tab-label {
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            transform: translateX(-10px);
+        }
+
+        .side-tab:hover {
+            left: -180px; 
+            background-color: var(--tab-hover);
+            color: #dccaa5;
+        }
+        
+        .side-tab:hover .side-tab-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .side-tab.active {
+            left: -180px;
+            background: var(--tab-hover);
+            color: #fff;
+            box-shadow: -2px 2px 15px rgba(0,0,0,0.6);
+            border-right: 1px solid var(--tab-hover);
+        }
+        
+        .side-tab.active .side-tab-label {
+            opacity: 1;
+            font-weight: 700;
+            color: var(--gold-accent);
+        }
+
+        /* --- RIGHT SIDE TABS --- */
+        .right-tabs-container {
+            position: absolute;
+            right: 0; 
+            bottom: 60px; 
+            width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 10; 
+            align-items: flex-end; 
+        }
+
+        .user-tab {
+            position: relative;
+            width: 220px;
+            height: 56px;
+            background: var(--tab-bg);
+            color: var(--tab-text);
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; 
+            padding-right: 8px;
+            box-sizing: border-box;
+            cursor: pointer;
+            border-radius: 0 8px 8px 0;
+            border: 1px solid #2a2118;
+            border-left: none; 
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+            right: -66px; 
+            transition: right 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.2s;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
+        }
+
+        .user-tab-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-accent);
+            margin-left: 18px;
+            object-fit: cover;
+            background: #000;
+            z-index: 2;
+        }
+
+        .user-tab-label {
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            transform: translateX(10px);
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .user-tab:hover {
+            right: -210px; 
+            background-color: var(--tab-hover);
+            color: #dccaa5;
+        }
+
+        .user-tab:hover .user-tab-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .user-tab.active {
+            right: -210px;
+            background: var(--tab-hover);
+            color: #fff;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+            border-left: 1px solid var(--tab-hover);
+        }
+
+        .user-tab.active .user-tab-label {
+            opacity: 1;
+            font-weight: 700;
+            color: var(--gold-accent);
+        }
+
+        /* --- INTERNAL SIDEBAR --- */
+        .sidebar {
+            width: 300px;
+            background: var(--sidebar-bg);
+            border-right: 2px solid rgba(74, 59, 42, 0.2);
+            display: flex;
+            flex-direction: column;
+            box-shadow: inset -5px 0 15px rgba(0,0,0,0.03);
+            padding: 25px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .sidebar-header {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--ink);
+            border-bottom: 2px solid var(--gold-accent);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        .search-container { margin-bottom: 20px; }
+        
+        .vintage-input {
+            width: 100%;
+            background: rgba(255,255,255,0.4);
+            border: 1px solid rgba(61, 43, 31, 0.3);
+            padding: 10px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--ink);
+            border-radius: 4px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /* --- RARITY ICONS --- */
+        .rarity-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 0 5px;
+        }
+
+        .rarity-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: inset 0 2px 5px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .rarity-icon:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 10px rgba(255,255,255,0.6);
+            z-index: 2;
+        }
+
+        /* ACTIVE STATE FOR RARITY ICONS */
+        .rarity-icon.active {
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255,255,255,0.8), inset 0 0 10px rgba(255,255,255,0.5);
+            transform: scale(1.15);
+            z-index: 5;
+        }
+
+        .rarity-icon svg { width: 16px; height: 16px; opacity: 0.7; fill: rgba(0,0,0,0.5); }
+
+        .r-all { background: var(--r-all); }
+        .r-common { background: var(--r-common); }
+        .r-uncommon { background: var(--r-uncommon); }
+        .r-rare { background: var(--r-rare); }
+        .r-epic { background: var(--r-epic); }
+        .r-legendary { background: var(--r-legendary); }
+
+        .category-list {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        
+        .category-list::-webkit-scrollbar { width: 6px; }
+        .category-list::-webkit-scrollbar-track { background: transparent; }
+        .category-list::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius:3px; }
+
+        .cat-item {
+            padding: 10px 12px;
+            margin-bottom: 3px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--ink-muted);
+            border-radius: 4px;
+            transition: 0.1s;
+        }
+
+        .cat-item:hover {
+            background: rgba(255,255,255,0.3);
+            color: var(--ink);
+        }
+
+        .cat-item.active {
+            background: rgba(184, 149, 72, 0.25);
+            color: #2b1b00;
+            font-weight: 700;
+            border-left: 3px solid var(--gold-accent);
+        }
+
+        /* --- RIGHT CONTENT AREA --- */
+        .content-pane {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .content-header {
+            padding: 40px 50px 20px 50px;
+            border-bottom: 2px solid rgba(74, 59, 42, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .content-header h1 {
+            font-family: var(--font-title);
+            margin: 0;
+            font-size: 2.4rem;
+            color: #2b1b00;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+        }
+
+        .stats-display {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            text-align: right;
+        }
+        .points-total {
+            font-family: var(--font-title);
+            font-size: 1.6rem;
+            color: var(--ink);
+            font-weight: 700;
+            display: block;
+        }
+
+        .scroll-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px 50px;
+        }
+
+        .scroll-container::-webkit-scrollbar { width: 10px; }
+        .scroll-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+        .scroll-container::-webkit-scrollbar-thumb { 
+            background: #c4b08b; 
+            border: 2px solid var(--window-bg); 
+            border-radius: 6px; 
+        }
+
+        /* --- ACHIEVEMENT CARD STYLES --- */
+        .ach-card {
+            display: flex;
+            background: rgba(255,255,255,0.4);
+            border: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 4px;
+            align-items: center;
+            position: relative;
+        }
+        .ach-card:hover {
+            background: rgba(255,255,255,0.7);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .ach-card.earned {
+            background: linear-gradient(to right, rgba(79, 143, 0, 0.05), rgba(0,0,0,0));
+            border-left: 4px solid #4f8f00;
+        }
+
+        /* Icon Border Dynamic via inline style */
+        .ach-icon {
+            width: 52px;
+            height: 52px;
+            background: #2a2118;
+            border: 3px solid #444; /* Default override by inline style */
+            margin-right: 20px;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+        .ach-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+        .ach-info { flex: 1; }
+        .ach-title { font-family: var(--font-title); font-weight: 700; font-size: 1.1rem; color: #2b1b00; }
+        .ach-desc { font-size: 0.95rem; color: var(--ink-muted); margin-top: 4px; }
+        
+        /* New Right Side Layout */
+        .ach-meta { 
+            text-align: center; 
+            min-width: 110px; 
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* POINT SHAPE (Diamond/Rhombus) */
+        .point-shape {
+            width: 36px;
+            height: 36px;
+            background: #2a2118;
+            border: 2px solid #555;
+            color: #fff;
+            transform: rotate(45deg); /* Diamond shape */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+            transition: all 0.3s;
+        }
+
+        /* Counter-rotate text so it's straight */
+        .point-shape span {
+            transform: rotate(-45deg);
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* GLOW VARIATIONS */
+        .glow-Common { border-color: var(--r-common); box-shadow: 0 0 2px var(--r-common); }
+        .glow-Uncommon { border-color: var(--r-uncommon); box-shadow: 0 0 6px var(--r-uncommon); }
+        .glow-Rare { border-color: var(--r-rare); box-shadow: 0 0 10px var(--r-rare); }
+        .glow-Epic { border-color: var(--r-epic); box-shadow: 0 0 12px var(--r-epic); }
+        .glow-Legendary { 
+            border-color: var(--r-legendary); 
+            box-shadow: 0 0 20px var(--r-legendary), inset 0 0 10px var(--r-legendary);
+            background: #4a2c00; 
+        }
+
+        /* Progress Bar */
+        .prog-bar-bg {
+            width: 90px;
+            height: 6px;
+            background: rgba(0,0,0,0.1);
+            margin-top: 4px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .prog-bar-fill { height: 100%; background: #b89548; }
+
+        /* Date Text */
+        .meta-bottom {
+            font-size: 0.7rem;
+            color: var(--ink-muted);
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .loader { padding: 40px; text-align: center; color: var(--ink-muted); font-style: italic; }
+
+        /* --- CUSTOM CURSOR TOOLTIP --- */
+        .custom-tooltip {
+            position: fixed;
+            background: var(--tab-bg);
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
+            color: var(--tab-text);
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 12px;
+            min-width: 200px;
+            max-width: 350px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.1s;
+            z-index: 9999;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            text-align: left;
+        }
+
+        .tt-title {
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .tt-type {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .tt-desc {
+            color: #ffd100;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .tt-divider {
+            height: 1px;
+            background: #444;
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        .tt-flavor {
+            color: #aaa;
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+        /* Nav bar */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 40px;
+            background: var(--tab-bg);
+            border-bottom: 3px solid #2a2118;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
+        }
+        .nav-bar a {
+            color: var(--tab-text);
+            text-decoration: none;
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            padding: 6px 16px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .nav-bar a:hover { background: var(--tab-hover); color: #dccaa5; }
+        .nav-bar a.active { color: var(--gold-accent); font-weight: 700; }
+        .nav-title {
+            color: var(--gold-accent);
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+                align-items: flex-start;
+            }
+
+            .layout-anchor {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .main-window {
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            /* Hide desktop side tabs */
+            .side-tabs-container,
+            .right-tabs-container {
+                display: none !important;
+            }
+
+            /* Nav bar mobile */
+            .nav-bar {
+                padding: 10px 15px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .nav-title { font-size: 0.9rem; }
+            .nav-bar a { font-size: 0.8rem; padding: 4px 10px; }
+
+            /* Mobile user strip */
+            .mobile-user-strip {
+                display: flex !important;
+                gap: 8px;
+                padding: 10px 15px;
+                background: var(--tab-bg);
+                overflow-x: auto;
+                border-bottom: 2px solid #2a2118;
+            }
+            .mobile-user-btn {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                background: rgba(255,255,255,0.1);
+                border: 1px solid #555;
+                border-radius: 20px;
+                padding: 6px 12px;
+                color: var(--tab-text);
+                font-family: var(--font-title);
+                font-size: 0.8rem;
+                cursor: pointer;
+                white-space: nowrap;
+                transition: all 0.2s;
+            }
+            .mobile-user-btn.active {
+                background: var(--tab-hover);
+                border-color: var(--gold-accent);
+                color: var(--gold-accent);
+                font-weight: 700;
+            }
+            .mobile-user-btn img {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                border: 1px solid var(--gold-accent);
+                object-fit: cover;
+            }
+
+            /* Mobile filter bar */
+            .mobile-filter-bar {
+                display: flex !important;
+                gap: 6px;
+                padding: 8px 15px;
+                background: var(--sidebar-bg);
+                overflow-x: auto;
+                border-bottom: 1px solid rgba(74,59,42,0.2);
+                align-items: center;
+            }
+            .mobile-filter-btn {
+                background: rgba(255,255,255,0.3);
+                border: 1px solid rgba(0,0,0,0.1);
+                border-radius: 16px;
+                padding: 5px 12px;
+                font-family: var(--font-body);
+                font-size: 0.75rem;
+                color: var(--ink-muted);
+                cursor: pointer;
+                white-space: nowrap;
+                transition: all 0.2s;
+            }
+            .mobile-filter-btn.active {
+                background: rgba(184,149,72,0.25);
+                color: #2b1b00;
+                font-weight: 700;
+                border-color: var(--gold-accent);
+            }
+
+            /* Mobile sidebar toggle */
+            .mobile-sidebar-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255,255,255,0.3);
+                border: 1px solid rgba(0,0,0,0.1);
+                border-radius: 16px;
+                padding: 5px 12px;
+                font-size: 0.75rem;
+                color: var(--ink-muted);
+                cursor: pointer;
+                white-space: nowrap;
+            }
+
+            /* Sidebar as overlay */
+            .sidebar {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 85%;
+                max-width: 320px;
+                height: 100%;
+                z-index: 1000;
+                box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+                padding: 20px;
+            }
+            .sidebar.mobile-open {
+                display: flex;
+            }
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+            .sidebar-overlay.visible {
+                display: block;
+            }
+
+            /* Content area mobile */
+            .content-header {
+                padding: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .content-header h1 { font-size: 1.4rem; }
+            .content-header a { display: none; }
+            .stats-display { text-align: left; }
+            .points-total { font-size: 1.2rem; }
+
+            .scroll-container {
+                padding: 10px 12px;
+            }
+
+            /* Achievement cards mobile */
+            .ach-card {
+                padding: 10px;
+                gap: 10px;
+            }
+            .ach-icon {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+            .ach-title { font-size: 0.9rem; }
+            .ach-desc { font-size: 0.8rem; }
+            .ach-meta { min-width: 60px; margin-left: 8px; }
+            .point-shape { width: 28px; height: 28px; }
+            .point-shape span { font-size: 0.7rem; }
+            .prog-bar-bg { width: 55px; }
+            .meta-bottom { font-size: 0.6rem; }
+
+            /* Rarity row mobile */
+            .rarity-row { gap: 8px; justify-content: flex-start; }
+            .rarity-icon { width: 28px; height: 28px; }
+
+            /* Tooltip - tap friendly */
+            .custom-tooltip {
+                position: fixed;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%);
+                max-width: 280px;
+                min-width: 200px;
+                z-index: 10000;
+            }
+
+            /* Hide main flex layout, use column */
+            .main-window > div[style*="display:flex"] {
+                flex-direction: column !important;
+            }
+        }
+
+        /* Hide mobile elements on desktop */
+        .mobile-user-strip,
+        .mobile-filter-bar,
+        .mobile-sidebar-toggle,
+        .sidebar-overlay {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="cursorTooltip" class="custom-tooltip">Tooltip</div>
+
+<div class="layout-anchor">
+
+    <div class="side-tabs-container">
+        <div class="side-tab active" onclick="setFilter('all', this)">
+            <span class="side-tab-icon">❖</span><span class="side-tab-label">All Records</span>
+        </div>
+        <div class="side-tab" onclick="setFilter('recommended', this)">
+            <span class="side-tab-icon">★</span><span class="side-tab-label">Recommended</span>
+        </div>
+        <div class="side-tab" onclick="setFilter('near', this)">
+            <span class="side-tab-icon">⏳</span><span class="side-tab-label">Near Comp.</span>
+        </div>
+        <div class="side-tab" onclick="setFilter('earned', this)">
+            <span class="side-tab-icon">✔</span><span class="side-tab-label">Completed</span>
+        </div>
+        <div class="side-tab" onclick="setFilter('unearned', this)">
+            <span class="side-tab-icon">🔒</span><span class="side-tab-label">Locked</span>
+        </div>
+    </div>
+
+    <div class="right-tabs-container" id="userTabShelf"></div>
+
+    <div class="main-window">
+            <div class="nav-bar">
+            <span class="nav-title">The Listener's Grimoire</span>
+            <div>
+                <a href="/" class="active">Journal</a>
+                <a href="/leaderboard">Leaderboard</a>
+                <a href="/timeline">Timeline</a>
+            </div>
+        </div>   
+
+        <!-- Mobile user strip (hidden on desktop) -->
+        <div class="mobile-user-strip" id="mobileUserStrip"></div>
+
+        <!-- Mobile filter bar (hidden on desktop) -->
+        <div class="mobile-filter-bar" id="mobileFilterBar">
+            <div class="mobile-filter-btn active" onclick="mobileSetFilter('all', this)">All</div>
+            <div class="mobile-filter-btn" onclick="mobileSetFilter('recommended', this)">★ Rec</div>
+            <div class="mobile-filter-btn" onclick="mobileSetFilter('near', this)">⏳ Near</div>
+            <div class="mobile-filter-btn" onclick="mobileSetFilter('earned', this)">✔ Done</div>
+            <div class="mobile-filter-btn" onclick="mobileSetFilter('unearned', this)">🔒 Locked</div>
+            <div class="mobile-sidebar-toggle" onclick="toggleMobileSidebar()">☰ Filters</div>
+        </div>
+
+        <!-- Sidebar overlay for mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileSidebar()"></div>
+
+        <div style="display:flex;flex:1;overflow:hidden;">
+        <div class="sidebar">
+            <div class="search-container">
+                <input type="text" id="searchBox" class="vintage-input" placeholder="Search..." oninput="handleSearch()">
+            </div>
+
+            <div class="rarity-row">
+                <div class="rarity-icon r-all active" data-rarity="All" onclick="toggleRarity(null, this)">
+                    <svg viewBox="0 0 24 24"><path d="M3 13h18v-2H3v2zm0-7v2h18V6H3zm0 12h18v-2H3v2z"/></svg>
+                </div>
+                <div class="rarity-icon r-common" data-rarity="Common" onclick="toggleRarity('Common', this)">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
+                </div>
+                <div class="rarity-icon r-uncommon" data-rarity="Uncommon" onclick="toggleRarity('Uncommon', this)">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-10 16h20z"/></svg>
+                </div>
+                <div class="rarity-icon r-rare" data-rarity="Rare" onclick="toggleRarity('Rare', this)">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l10 10-10 10-10-10z"/></svg>
+                </div>
+                <div class="rarity-icon r-epic" data-rarity="Epic" onclick="toggleRarity('Epic', this)">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5v-10z"/></svg>
+                </div>
+                <div class="rarity-icon r-legendary" data-rarity="Legendary" onclick="toggleRarity('Legendary', this)">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5-6.5 4.5 2-7-5.5-4h7z"/></svg>
+                </div>
+            </div>
+
+            <div class="sidebar-header">Categories</div>
+            <div id="categoryList" class="category-list">
+                <div class="loader" style="font-size:0.8rem">Loading...</div>
+            </div>
+        </div>
+
+        <div class="content-pane">
+            <div class="content-header">
+                <h1 id="pageTitle">All Records</h1>
+                <div class="stats-display">
+                    <span class="points-total" id="userPoints">0</span>
+                    <span>Achievement Points</span>
+                </div>
+            </div>
+
+            <div class="scroll-container">
+                <div id="achievementList">
+                    <div class="loader">Opening tome...</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // ===========================================================
+    // CONFIG & API
+    // ===========================================================
+    const API_AWARDS = "/api/awards";
+    const API_DEFS = "/api/definitions";
+    const API_PROGRESS = "/api/progress";
+    let TARGET_USERS = [];  // populated from ui-config if available
+    let USER_ICONS = {};
+    let USER_ALIASES = {};
+
+    const CATEGORY_ALIASES = {
+        "author": "Author Mastery",
+        "behavior_session": "Session Rituals",
+        "behavior_streak": "Streak Discipline",
+        "behavior_time": "Listening Habits",
+        "milestone_yearly": "Persistent Listening",
+        "duration": "Endurance",
+        "milestone_books": "Book Milestones",
+        "milestone_series": "Series Milestones",
+        "milestone_time": "Time Milestones",
+        "misc": "Special Feats",
+        "narrator": "Narrator Mastery",
+        "series_complete": "Series Completion",
+        "series_shape": "Series Patterns",
+        "social": "Social Achievements",
+        "title_keyword": "Title Themes"
+    };
+
+    // ===========================================================
+    // STATE
+    // ===========================================================
+    const state = {
+        awards: null,
+        defs: null,
+        progress: null,
+        selectedUserId: null,
+        view: "all",      
+        category: "",
+        search: "",
+        rarity: null 
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const safeStr = (v) => (v === null || v === undefined) ? "" : String(v);
+    const iconUrl = (def) => {
+        const p = safeStr(def.iconPath || "");
+        if (!p) return "";
+        return p.startsWith("/") ? p : ("/icons/" + p);
+    };
+    const fmtDate = (epochSec) => epochSec ? new Date(epochSec * 1000).toLocaleDateString() : "";
+
+    const inferMilestoneTarget = (def) => {
+        const id = safeStr(def.id || def.achievement_id || "");
+        let m = id.match(/^finish_(\d+)_books_total_/i);
+        if (m) return { type: "books_total", target: parseInt(m[1], 10) };
+        m = id.match(/^finish_(\d+)_hours_total_/i);
+        if (m) return { type: "listening_hours", target: parseInt(m[1], 10) };
+        const trig = safeStr(def.trigger || "");
+        m = trig.match(/finish\s+(\d+)\s+books?\s+total/i);
+        if (m) return { type: "books_total", target: parseInt(m[1], 10) };
+        m = trig.match(/(\d+)\s+hours?/i);
+        if (m && /hours?/i.test(trig) && /listening|listen/i.test(trig)
+            && !/single.*session/i.test(trig) && !/weekend/i.test(trig)) {
+            return { type: "listening_hours", target: parseInt(m[1], 10) };
+        }
+        // Series completion: "Complete all books in <SeriesName>"
+        m = trig.match(/complete all books in\s+(.+)/i);
+        if (m) return { type: "series_complete", seriesName: m[1].trim() };
+                // Yearly books: "Finish 100 books in a single calendar year"
+        m = trig.match(/finish\s+(\d+)\s+books?\s+in\s+a\s+single\s+calendar\s+year/i);
+        if (m) return { type: "books_yearly", target: parseInt(m[1], 10) };
+
+        return null;
+    };
+
+    // ===========================================================
+    // TOOLTIP & RARITY LOGIC
+    // ===========================================================
+    const tooltip = document.getElementById('cursorTooltip');
+    document.querySelectorAll('.rarity-icon').forEach(icon => {
+        icon.addEventListener('mouseenter', (e) => {
+            tooltip.innerText = icon.getAttribute('data-rarity');
+            tooltip.style.opacity = '1';
+        });
+        icon.addEventListener('mousemove', (e) => {
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY + 15) + 'px';
+        });
+        icon.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+        });
+    });
+
+    function toggleRarity(rarity, element) {
+        state.rarity = rarity; // Null for All, String for others
+        document.querySelectorAll('.rarity-icon').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+        render();
+    }
+
+    // ===========================================================
+    // MAIN LOGIC
+    // ===========================================================
+    async function loadData() {
+        try {
+            const [aw, defs, prog, uiCfg] = await Promise.all([
+                fetch(API_AWARDS).then(r => r.json()),
+                fetch(API_DEFS).then(r => r.json()),
+                fetch(API_PROGRESS).then(r => r.json()),
+                fetch("/api/ui-config").then(r => r.json()).catch(() => ({})),
+            ]);
+            USER_ALIASES = uiCfg.aliases || {};
+            USER_ICONS = uiCfg.icons || {};
+            TARGET_USERS = Object.keys(USER_ALIASES);
+            state.awards = aw;
+            state.defs = defs;
+            state.progress = prog;
+
+            initUserTabs();
+            populateCategoryList();
+            render();
+            
+        } catch (e) {
+            $("achievementList").innerHTML = `<div class="loader" style="color:#a00">Error loading data.<br>${e.message}</div>`;
+        }
+    }
+
+    function initUserTabs() {
+        const users = state.awards?.users || [];
+        const userMap = state.awards?.user_map || {};
+        
+        let roster = users.map(u => ({
+            id: u.user_id,
+            username: u.username || userMap[u.user_id] || u.user_id
+        }));
+
+        roster.sort((a,b) => {
+            const ai = TARGET_USERS.indexOf(a.username);
+            const bi = TARGET_USERS.indexOf(b.username);
+            if (ai !== -1 && bi !== -1) return ai - bi;
+            if (ai !== -1) return -1;
+            if (bi !== -1) return 1;
+            return a.username.localeCompare(b.username);
+        });
+
+        const shelf = $("userTabShelf");
+        shelf.innerHTML = "";
+        if (!state.selectedUserId && roster.length > 0) state.selectedUserId = roster[0].id;
+
+        roster.forEach(u => {
+            const tab = document.createElement("div");
+            tab.className = "user-tab";
+            if (u.id === state.selectedUserId) tab.classList.add("active");
+            
+            const alias = USER_ALIASES[u.username] || u.username;
+            const iconSrc = USER_ICONS[u.username] || "/icons/avatar_default.png";
+            
+            const label = document.createElement("span");
+            label.className = "user-tab-label";
+            label.innerText = alias;
+            
+            const img = document.createElement("img");
+            img.className = "user-tab-avatar";
+            img.src = iconSrc;
+            img.onerror = () => { img.style.display = 'none'; }; 
+
+            tab.appendChild(label);
+            tab.appendChild(img);
+
+            tab.onclick = () => {
+                state.selectedUserId = u.id;
+                document.querySelectorAll(".user-tab").forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+                render();
+            };
+            shelf.appendChild(tab);
+        });
+    }
+
+    // Global selectUser for mobile strip
+    window.selectUser = function(userId) {
+        state.selectedUserId = userId;
+        document.querySelectorAll(".user-tab").forEach(t => t.classList.remove("active"));
+        // Find and activate the matching desktop tab
+        document.querySelectorAll(".user-tab").forEach(t => {
+            // We stored user id in the onclick closure, so re-init is simpler
+        });
+        initUserTabs(); // re-render tabs with correct active state
+        render();
+    };
+
+    function populateCategoryList() {
+        let rawCats = [];
+        if (Array.isArray(state.defs)) {
+            rawCats = state.defs;
+        } else if (state.defs && state.defs.achievements) {
+            rawCats = state.defs.achievements;
+        }
+
+        const cats = new Set();
+        rawCats.forEach(d => {
+            if(d.category) cats.add(d.category);
+        });
+        
+        const listContainer = $("categoryList");
+        listContainer.innerHTML = "";
+        
+        const allDiv = document.createElement("div");
+        allDiv.className = "cat-item active";
+        allDiv.innerText = "All Categories";
+        allDiv.onclick = () => selectCategory("", allDiv);
+        listContainer.appendChild(allDiv);
+
+        const catArray = Array.from(cats).map(c => ({
+            id: c,
+            name: CATEGORY_ALIASES[c] || c.charAt(0).toUpperCase() + c.slice(1) 
+        }));
+
+        catArray.sort((a,b) => a.name.localeCompare(b.name));
+
+        catArray.forEach(c => {
+            const div = document.createElement("div");
+            div.className = "cat-item";
+            div.innerText = c.name;
+            div.onclick = () => selectCategory(c.id, div);
+            listContainer.appendChild(div);
+        });
+    }
+
+    function selectCategory(catName, element) {
+        state.category = catName;
+        document.querySelectorAll('.cat-item').forEach(el => el.classList.remove('active'));
+        element.classList.add('active');
+        render();
+    }
+
+    function setFilter(viewMode, el) {
+        state.view = viewMode;
+        document.querySelectorAll('.side-tab').forEach(d => d.classList.remove('active'));
+        el.classList.add('active');
+        render();
+    }
+
+    function handleSearch() {
+        state.search = $("searchBox").value.toLowerCase();
+        render();
+    }
+
+// --- Tooltip Handlers (New) ---
+    window.showAchTooltip = function(el) {
+        const title = el.getAttribute('data-title');
+        const rarity = el.getAttribute('data-rarity');
+        const points = el.getAttribute('data-points');
+        const trigger = el.getAttribute('data-trigger');
+        const flavor = el.getAttribute('data-flavor');
+        
+        const tip = document.getElementById('cursorTooltip');
+        const colorVar = `var(--r-${rarity.toLowerCase()})`;
+        
+        // Update border color and add a matching glow
+        tip.style.borderColor = colorVar;
+        tip.style.boxShadow = `0 0 8px ${colorVar}, 0 4px 20px rgba(0,0,0,0.8)`;
+
+        tip.innerHTML = `
+            <div class="tt-title" style="color:${colorVar}">${title}</div>
+            <div class="tt-type" style="color:${colorVar}">${rarity} Achievement (${points} pts)</div>
+            <div class="tt-desc">${trigger}</div>
+            ${flavor ? `<div class="tt-divider"></div><div class="tt-flavor">"${flavor}"</div>` : ''}
+        `;
+        tip.style.opacity = '1';
+    };
+    window.moveAchTooltip = function(e) {
+        const tip = document.getElementById('cursorTooltip');
+        tip.style.left = (e.clientX + 15) + 'px';
+        tip.style.top = (e.clientY + 15) + 'px';
+    };
+    window.hideAchTooltip = function() {
+        document.getElementById('cursorTooltip').style.opacity = '0';
+    };
+
+    // --- Main Render Function ---
+    function render() {
+        if (!state.awards || !state.selectedUserId) return;
+
+        const listEl = $("achievementList");
+        listEl.innerHTML = "";
+
+        const userAwardData = state.awards.users.find(u => u.user_id === state.selectedUserId);
+        const userProgData = state.progress.users.find(u => u.user_id === state.selectedUserId);
+        $("userPoints").innerText = userAwardData ? (userAwardData.points || 0) : 0;
+        
+        const earnedSet = new Set((userAwardData?.awards || []).map(a => a.achievement_id));
+        
+        let definitions = [];
+        if (Array.isArray(state.defs)) {
+            definitions = state.defs;
+        } else if (state.defs && state.defs.achievements) {
+            definitions = state.defs.achievements;
+        }
+
+        const finishedCount = userProgData?.metrics?.finished_count ?? 0;
+        const listeningHours = userProgData?.metrics?.listening_hours ?? 0;
+
+        let items = definitions.map(def => {
+            const id = def.id || "";
+            const isEarned = earnedSet.has(id);
+            const earnedRow = isEarned ? userAwardData.awards.find(a => a.achievement_id === id) : null;
+            let current = 0, target = 0, percent = 0;
+            
+            if (isEarned) {
+                percent = 100;
+                current = target = 1; 
+            
+                } else {
+                const mil = inferMilestoneTarget(def);
+                if (mil) {
+                    if (mil.type === "series_complete") {
+                        const sp = (userProgData?.series_progress || [])
+                            .find(s => s.seriesName.toLowerCase() === mil.seriesName.toLowerCase());
+                        if (sp) {
+                            current = sp.done;
+                            target = sp.total;
+                            percent = Math.min(100, (current / target) * 100);
+                        }
+                    } else {
+                        target = mil.target;
+                        if (mil.type === "books_total") current = finishedCount;
+                        if (mil.type === "listening_hours") current = Math.floor(listeningHours);
+                        if (mil.type === "books_yearly") {
+                            const bby = userProgData?.metrics?.books_by_year || {};
+                            current = Math.max(...Object.values(bby).map(Number), 0);
+                        }
+                        if (target > 0) percent = Math.min(100, (current / target) * 100);
+                    }
+                }
+            }
+
+            return {
+                def, id, isEarned,
+                earnedAt: earnedRow?.awarded_at,
+                points: def.points || 0,
+                progress: { current, target, percent },
+                sharedDetail: (() => {
+                    const p = earnedRow?.payload;
+                    if (!p || !p.otherUser) return "";
+                    const alias = USER_ALIASES[p.otherUser] || p.otherUser;
+                    const title = p.bookTitle || "";
+                    return title ? `${title} — with ${alias}` : `with ${alias}`;
+                })()
+            };
+        });
+
+            items = items.filter(item => {
+            if (state.search) {
+                // Combine all searchable fields, handling potential null/undefined values safely
+                const searchableFields = [
+                    item.def.achievement, // The primary name used in display
+                    item.def.title,       // The fallback name
+                    item.def.trigger,     // The description/trigger text
+                    item.def.category     // The category name
+                ];
+                
+                const text = searchableFields.map(s => (s || "").toLowerCase()).join(" ");
+                
+                if (!text.includes(state.search)) return false;
+            }
+            if (state.category && item.def.category !== state.category) return false;
+            if (state.rarity && (item.def.rarity || "Common") !== state.rarity) return false;
+
+            if (state.view === "earned") return item.isEarned;
+            if (state.view === "unearned") return !item.isEarned;
+            if (state.view === "near") return !item.isEarned && item.progress.percent >= 50;
+            if (state.view === "recommended") return !item.isEarned && (item.progress.percent > 25 || item.points <= 10);
+            return true;
+        });
+
+        items.sort((a, b) => {
+            if (a.isEarned !== b.isEarned) return a.isEarned ? 1 : -1;
+            if (!a.isEarned) return b.progress.percent - a.progress.percent;
+            return b.earnedAt - a.earnedAt;
+        });
+
+        const titleMap = {
+            'all': 'All Records', 'earned': 'Completed', 'unearned': 'Locked',
+            'near': 'Near Completion', 'recommended': 'Recommended'
+        };
+        $("pageTitle").innerText = titleMap[state.view] || "Journal";
+
+        if (items.length === 0) {
+            listEl.innerHTML = `<div class="loader">No achievements found in this section.</div>`;
+            return;
+        }
+
+        const TRIGGER_MASKS = {
+            "finish_your_first_book_first_word": "Finish your first book."
+        };
+
+        items.forEach(item => {
+            const d = item.def;
+            const p = item.progress;
+            const rarity = d.rarity || "Common";
+            
+            const displayName = d.achievement || d.title || "Unknown";
+            const displayTrigger = TRIGGER_MASKS[item.id] || d.trigger || "";
+            
+            // Prepare tooltip text (Safe for attribute)
+            const tooltipText = safeStr(displayTrigger).replace(/"/g, '&quot;');
+            
+            let statusHtml = '';
+            if (!item.isEarned && p.target > 0) {
+                statusHtml = `
+                    <div class="meta-bottom">
+                         ${p.current} / ${p.target}
+                         <div class="prog-bar-bg"><div class="prog-bar-fill" style="width: ${p.percent}%"></div></div>
+                    </div>
+                `;
+            } else if (item.isEarned) {
+                statusHtml = `<div class="meta-bottom" style="color:#2b1b00">${fmtDate(item.earnedAt)}</div>`;
+            } else {
+                statusHtml = `<div class="meta-bottom" style="font-style:italic">Locked</div>`;
+            }
+
+            const html = `
+                <div class="ach-card ${item.isEarned ? 'earned' : ''}"
+                     data-title="${safeStr(displayName)}"
+                     data-rarity="${rarity}"
+                     data-points="${item.points}"
+                     data-trigger="${safeStr(displayTrigger).replace(/"/g, '&quot;')}"
+                     data-flavor="${safeStr(d.flavorText || "").replace(/"/g, '&quot;')}"
+                     onmouseenter="showAchTooltip(this)"
+                     onmousemove="moveAchTooltip(event)"
+                     onmouseleave="hideAchTooltip()">
+                     
+                    <div class="ach-icon" style="border-color: var(--r-${rarity.toLowerCase()})">
+                         ${iconUrl(d) ? `<img src="${iconUrl(d)}" onerror="this.style.display='none'">` : ''}
+                    </div>
+                    <div class="ach-info">
+                        <div class="ach-title">${safeStr(displayName)}</div>
+                        ${d.flavorText ? `<div class="ach-desc" style="font-style:italic; color:#b89548">"${d.flavorText}"</div>` : ''}
+                        ${item.sharedDetail ? `<div class="ach-desc" style="color:#7ec8e3; font-size:0.85em; margin-top:4px">📖 ${item.sharedDetail}</div>` : ''}
+                    </div>
+                    <div class="ach-meta">
+                        <div class="point-shape glow-${rarity}"><span>${item.points}</span></div>
+                        ${statusHtml}
+                    </div>
+                </div>
+            `;
+            listEl.innerHTML += html;
+        });
+
+        // Rebuild mobile user strip on re-render
+        if (typeof buildMobileUserStrip === 'function') buildMobileUserStrip();
+    }
+
+    // ===========================================================
+    // MOBILE SUPPORT
+    // ===========================================================
+    function buildMobileUserStrip() {
+        const strip = $("mobileUserStrip");
+        if (!strip) return;
+        const users = state.awards?.users || [];
+        const userMap = state.awards?.user_map || {};
+        let roster = users.map(u => ({
+            id: u.user_id,
+            username: u.username || userMap[u.user_id] || u.user_id
+        }));
+        if (TARGET_USERS.length) {
+            roster = roster.filter(u => TARGET_USERS.includes(u.username));
+            roster.sort((a, b) => TARGET_USERS.indexOf(a.username) - TARGET_USERS.indexOf(b.username));
+        }
+
+        strip.innerHTML = roster.map(u => {
+            const alias = USER_ALIASES[u.username] || u.username;
+            const icon = USER_ICONS[u.username] || "";
+            const isActive = u.id === state.selectedUserId;
+            return `<div class="mobile-user-btn ${isActive ? 'active' : ''}" onclick="selectUser('${u.id}')">
+                ${icon ? `<img src="${icon}" onerror="this.style.display='none'">` : ''}
+                ${alias}
+            </div>`;
+        }).join("");
+    }
+
+    function mobileSetFilter(view, el) {
+        document.querySelectorAll('.mobile-filter-btn').forEach(b => b.classList.remove('active'));
+        if (el) el.classList.add('active');
+        state.view = view;
+        // Also sync desktop side tabs
+        document.querySelectorAll('.side-tab').forEach(t => t.classList.remove('active'));
+        render();
+    }
+
+    function toggleMobileSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = $("sidebarOverlay");
+        sidebar.classList.toggle('mobile-open');
+        overlay.classList.toggle('visible');
+    }
+
+    // Make tooltip work on tap for mobile
+    function setupMobileTapTooltip() {
+        if (window.innerWidth > 768) return;
+        document.addEventListener('click', function(e) {
+            const card = e.target.closest('.ach-card');
+            const tip = document.getElementById('cursorTooltip');
+            if (card) {
+                showAchTooltip(card);
+                tip.style.opacity = '1';
+                e.stopPropagation();
+            } else {
+                tip.style.opacity = '0';
+            }
+        });
+    }
+
+    // Patch render to also update mobile strip
+    const _origRender = render;
+    // We'll call buildMobileUserStrip after render
+    
+    loadData();
+
+    // After initial load, set up mobile features
+    setTimeout(() => {
+        buildMobileUserStrip();
+        setupMobileTapTooltip();
+    }, 500);
+</script>
+</body>
+</html>

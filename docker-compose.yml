@@ -1,0 +1,40 @@
+services:
+  # ------------------------------------------------------------------
+  # abs-stats: required companion service
+  # Connects to your Audiobookshelf instance and exposes listening data
+  # via a REST API that the achievement engine polls.
+  # ------------------------------------------------------------------
+  abs-stats:
+    build: ./abs-stats
+    ports:
+      - "3000:3000"
+    environment:
+      - ABS_URL=http://your-audiobookshelf:13378   # <-- your Audiobookshelf URL
+      - ABS_TOKEN=your-abs-api-token               # <-- your ABS API token
+      - ENGINE_URL=http://achievement-engine:8000
+      # Optional: comma-separated list of usernames to include (omit or set "*" for all)
+      # - ALLOWED_USERNAMES=*
+      # Optional: per-user tokens for multi-user support
+      # - ABS_TOKENS=user1:token1,user2:token2
+      # Optional: Discord webhook URL for notification proxy
+      # - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
+    restart: unless-stopped
+
+  # ------------------------------------------------------------------
+  # achievement-engine: the trophy/achievement system
+  # ------------------------------------------------------------------
+  achievement-engine:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+      - ./icons:/data/icons
+      - ./dashboard.html:/data/dashboard.html:ro
+      - ./leaderboard.html:/data/leaderboard.html:ro
+      - ./timeline.html:/data/timeline.html:ro
+    env_file:
+      - .env
+    depends_on:
+      - abs-stats
+    restart: unless-stopped
