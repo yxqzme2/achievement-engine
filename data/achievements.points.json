@@ -1,346 +1,15 @@
 [
   {
-    "title": "Bibliophile",
-    "achievement": "Backlist Devourer",
-    "flavorText": "Ten books by the same author. At this point you're funding their coffee habit personally.",
-    "trigger": "Finish 10 books by the same author.",
-    "id": "finish_10_books_by_the_same_author_backlist_devourer",
-    "category": "author",
-    "tags": [
-      "author"
-    ],
-    "points": 40,
-    "iconPath": "C:\\path\\to\\icons\\1.png"
-  },
-  {
-    "title": "Multi-talented",
-    "achievement": "Self-Narrated Chaos",
-    "flavorText": "The author narrated their own book. Bold. Intimate. Slightly unhinged.",
-    "trigger": "Finish a book that is narrated by the author.",
-    "id": "finish_a_book_that_is_narrated_by_the_author_self_narrated_c",
-    "category": "author",
-    "tags": [
-      "author"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\2.png"
-  },
-  {
-    "title": "Superfan",
-    "achievement": "Author Stalker (Legally)",
-    "flavorText": "Five books by the same author. You're not obsessed. You're 'consistent.'",
-    "trigger": "Finish 5 books by the same author.",
-    "id": "finish_5_books_by_the_same_author_author_stalker_legally",
-    "category": "author",
-    "tags": [
-      "author"
-    ],
-    "points": 20,
-    "iconPath": "C:\\path\\to\\icons\\3.png"
-  },
-  {
-    "title": "2:00 AM: Poor Life Choices",
-    "achievement": "Just One More Chapter",
-    "flavorText": "You listened past 2 AM on a weeknight. Tomorrow-you is furious. The System is delighted.",
-    "trigger": "User has any listening session that reaches = 2:00 AM America/New_York, where the local day is Monday - Friday.",
-    "id": "user_has_any_listening_session_that_reaches_2_00_am_america_",
-    "category": "behavior_time",
-    "tags": [
-      "time",
-      "late_night"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\4.png"
-  },
-  {
-    "title": "Novella Collector",
-    "achievement": "Bite-Sized Binge",
-    "flavorText": "Five short books down. You're basically speedrunning literature.",
-    "trigger": "Finish 5 books that are under 5 hours long.",
-    "id": "finish_5_books_that_are_under_5_hours_long_bite_sized_binge",
-    "category": "duration",
-    "tags": [
-      "duration"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\5.png"
-  },
-  {
-    "title": "Short & Sweet",
-    "achievement": "Snack-Sized Violence",
-    "flavorText": "You finished a book under 3 hours. Quick. Clean. Suspiciously efficient.",
-    "trigger": "Finish a book that is under 3 hours long.",
-    "id": "finish_a_book_that_is_under_3_hours_long_snack_sized_violenc",
-    "category": "duration",
-    "tags": [
-      "duration"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\6.png"
-  },
-  {
-    "title": "The Epic",
-    "achievement": "Fifty-Hour Boss Fight",
-    "flavorText": "You finished a book longer than 50 hours. The System has no reward worthy of this. It offers trauma instead.",
-    "trigger": "Finish a book that is over 50 hours long.",
-    "id": "finish_a_book_that_is_over_50_hours_long_fifty_hour_boss_fig",
-    "category": "duration",
-    "tags": [
-      "duration"
-    ],
-    "points": 40,
-    "iconPath": "C:\\path\\to\\icons\\7.png"
-  },
-  {
-    "title": "The Long Haul",
-    "achievement": "Thirty-Hour Sentence",
-    "flavorText": "You finished a book longer than 30 hours. That wasn't a book. That was a hostage situation.",
-    "trigger": "Finish a book that is over 30 hours long.",
-    "id": "finish_a_book_that_is_over_30_hours_long_thirty_hour_sentenc",
-    "category": "duration",
-    "tags": [
-      "duration"
-    ],
-    "points": 20,
-    "iconPath": "C:\\path\\to\\icons\\8.png"
-  },
-  {
-    "title": "20 books",
-    "achievement": "Twenty Questions, Zero Regrets",
-    "flavorText": "Twenty books finished. You now have opinions on narrators you've never met. The System approves of your confidence.",
-    "trigger": "Finish 20 audiobooks total.",
-    "id": "finish_20_audiobooks_total_twenty_questions_zero_regrets",
-    "category": "milestone_books",
-    "tags": [
-      "books",
-      "overall"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\9.png"
-  },
-  {
-    "title": "Century Club",
-    "achievement": "Triple-Digit Menace",
-    "flavorText": "One hundred books finished. At this point the System isn't rewarding you. It's documenting you.",
-    "trigger": "Finish 100 books total.",
-    "id": "finish_100_books_total_triple_digit_menace",
-    "category": "milestone_books",
-    "tags": [
-      "books",
-      "overall"
-    ],
-    "points": 150,
-    "iconPath": "C:\\path\\to\\icons\\10.png"
-  },
-  {
-    "title": "First Word",
-    "achievement": "Tutorial: Complete",
-    "flavorText": "You finished your first audiobook. The System is proud. Don't get used to it.",
-    "trigger": "Finish your first audiobook.",
-    "id": "finish_your_first_audiobook_tutorial_complete",
-    "category": "milestone_books",
-    "tags": [
-      "books",
-      "overall"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\11.png"
-  },
-  {
-    "title": "Five-Pack",
-    "achievement": "Light Snack",
-    "flavorText": "Five books down. You're not addicted. You're 'committed.' That's what the addicts say.",
-    "trigger": "Finish 5 books total.",
-    "id": "finish_5_books_total_light_snack",
-    "category": "milestone_books",
-    "tags": [
-      "books",
-      "overall"
-    ],
-    "points": 10,
-    "iconPath": "C:\\path\\to\\icons\\12.png"
-  },
-  {
-    "title": "Gold Scholar",
-    "achievement": "Fifty Shades of Completion",
-    "flavorText": "Fifty books. Your brain is now 12% audiobook and 88% opinions. The System approves. Reluctantly.",
-    "trigger": "Finish 50 books total.",
-    "id": "finish_50_books_total_fifty_shades_of_completion",
-    "category": "milestone_books",
-    "tags": [
-      "books",
-      "overall"
-    ],
-    "points": 75,
-    "iconPath": "C:\\path\\to\\icons\\13.png"
-  },
-  {
-    "title": "Silver Scholar",
-    "achievement": "Quarter-Stacked",
-    "flavorText": "Twenty-five completions. That's not 'a phase.' That's a lifestyle choice.",
-    "trigger": "Finish 25 books total.",
-    "id": "finish_25_books_total_quarter_stacked",
-    "category": "milestone_books",
-    "tags": [
-      "books",
-      "overall"
-    ],
-    "points": 40,
-    "iconPath": "C:\\path\\to\\icons\\14.png"
-  },
-  {
-    "title": "The Decade",
-    "achievement": "Double Digits",
-    "flavorText": "Ten books. You've formed a habit. The System suggests you stop pretending otherwise.",
-    "trigger": "Finish 10 books total.",
-    "id": "finish_10_books_total_double_digits",
-    "category": "milestone_books",
-    "tags": [
-      "books",
-      "overall"
-    ],
-    "points": 20,
-    "iconPath": "C:\\path\\to\\icons\\15.png"
-  },
-  {
-    "title": "1 series",
-    "achievement": "Series Eradicated",
-    "flavorText": "You finished an entire series. The System marks it 'cleared' and immediately offers you three more.",
-    "trigger": "Finish 1 complete series.",
-    "id": "finish_1_complete_series_series_eradicated",
-    "category": "milestone_series",
-    "tags": [
-      "series",
-      "overall"
-    ],
-    "points": 10,
-    "iconPath": "C:\\path\\to\\icons\\16.png"
-  },
-  {
-    "title": "15 series",
-    "achievement": "Serial Offender",
-    "flavorText": "Fifteen series. That's not dedication. That's a condition. The System recommends sunlight.",
-    "trigger": "Finish 15 complete series.",
-    "id": "finish_15_complete_series_serial_offender",
-    "category": "milestone_series",
-    "tags": [
-      "series",
-      "overall"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\17.png"
-  },
-  {
-    "title": "2 series",
-    "achievement": "Double Feature",
-    "flavorText": "Two series down. You're officially the kind of person who says, 'I'll just start the next one.' The System smiles.",
-    "trigger": "Finish 2 complete series.",
-    "id": "finish_2_complete_series_double_feature",
-    "category": "milestone_series",
-    "tags": [
-      "series",
-      "overall"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\18.png"
-  },
-  {
-    "title": "20 series",
-    "achievement": "Saga Collector",
-    "flavorText": "Twenty series finished. You've lived multiple lifetimes and still have backlog. The System nods knowingly.",
-    "trigger": "Finish 20 complete series.",
-    "id": "finish_20_complete_series_saga_collector",
-    "category": "milestone_series",
-    "tags": [
-      "series",
-      "overall"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\19.png"
-  },
-  {
-    "title": "25 series",
-    "achievement": "Continuity Terrorist",
-    "flavorText": "Twenty-five series. You've crushed more arcs than most editors. The System fears your momentum.",
-    "trigger": "Finish 25 complete series.",
-    "id": "finish_25_complete_series_continuity_terrorist",
-    "category": "milestone_series",
-    "tags": [
-      "series",
-      "overall"
-    ],
-    "points": 150,
-    "iconPath": "C:\\path\\to\\icons\\20.png"
-  },
-  {
     "title": "50 series",
     "achievement": "Library Boss",
     "flavorText": "Fifty series completed. You are the endgame content. The System offers you a throne made of bookmarks.",
     "trigger": "Finish 50 complete series.",
     "id": "finish_50_complete_series_library_boss",
     "category": "milestone_series",
-    "tags": [
-      "series",
-      "overall"
-    ],
+    "tags": "series",
     "points": 300,
-    "iconPath": "C:\\path\\to\\icons\\21.png"
-  },
-  {
-    "title": "Serial Listener",
-    "achievement": "Franchise Destroyer",
-    "flavorText": "Five series completed. The System is updating your title to: 'Problematic.'",
-    "trigger": "Finish 5 complete series.",
-    "id": "finish_5_complete_series_franchise_destroyer",
-    "category": "milestone_series",
-    "tags": [
-      "series",
-      "overall"
-    ],
-    "points": 40,
-    "iconPath": "C:\\path\\to\\icons\\22.png"
-  },
-  {
-    "title": "Series Master",
-    "achievement": "Box Set Executioner",
-    "flavorText": "Ten series completed. You don't finish stories. You hunt them.",
-    "trigger": "Finish 10 complete series.",
-    "id": "finish_10_complete_series_box_set_executioner",
-    "category": "milestone_series",
-    "tags": [
-      "series",
-      "overall"
-    ],
-    "points": 75,
-    "iconPath": "C:\\path\\to\\icons\\23.png"
-  },
-  {
-    "title": "Committed",
-    "achievement": "Time Served",
-    "flavorText": "One hundred hours listened. That's a part-time job you volunteered for.",
-    "trigger": "Reach 1 hours of total listening time.",
-    "id": "reach_100_hours_of_total_listening_time_time_served",
-    "category": "milestone_time",
-    "tags": [
-      "time",
-      "listening"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\24.png"
-  },
-  {
-    "title": "Deep Diver",
-    "achievement": "Sonic Depth Charge",
-    "flavorText": "Five hundred hours. You've been listening long enough to develop plot-based instincts.",
-    "trigger": "Reach 500 hours of total listening time.",
-    "id": "reach_500_hours_of_total_listening_time_sonic_depth_charge",
-    "category": "milestone_time",
-    "tags": [
-      "time",
-      "listening"
-    ],
-    "points": 100,
-    "iconPath": "C:\\path\\to\\icons\\25.png"
+    "iconPath": "/icons/libboss.png",
+    "rarity": "Legendary"
   },
   {
     "title": "The Chronicler",
@@ -349,34 +18,154 @@
     "trigger": "Reach 1,000 hours of total listening time.",
     "id": "reach_1_000_hours_of_total_listening_time_one_thousand_hours",
     "category": "milestone_time",
-    "tags": [
-      "time",
-      "listening"
-    ],
+    "tags": "time",
     "points": 250,
-    "iconPath": "C:\\path\\to\\icons\\26.png"
+    "iconPath": "/icons/1000hours.png",
+    "rarity": "Legendary"
+  },
+  {
+    "title": "Century Club",
+    "achievement": "Triple-Digit Menace",
+    "flavorText": "One hundred books finished. At this point the System isn't rewarding you. It's documenting you.",
+    "trigger": "Finish 100 books total.",
+    "id": "finish_100_books_total_triple_digit_menace",
+    "category": "milestone_books",
+    "tags": "books",
+    "points": 150,
+    "iconPath": "/icons/100done.png",
+    "rarity": "Legendary"
+  },
+  {
+    "title": "25 series",
+    "achievement": "Continuity Terrorist",
+    "flavorText": "Twenty-five series. You've crushed more arcs than most editors. The System fears your momentum.",
+    "trigger": "Finish 25 complete series.",
+    "id": "finish_25_complete_series_continuity_terrorist",
+    "category": "milestone_series",
+    "tags": "series",
+    "points": 150,
+    "iconPath": "/icons/continuity.png",
+    "rarity": "Legendary"
+  },
+  {
+    "title": "Deep Diver",
+    "achievement": "Sonic Depth Charge",
+    "flavorText": "Five hundred hours. You've been listening long enough to develop plot-based instincts.",
+    "trigger": "Reach 500 hours of total listening time.",
+    "id": "reach_500_hours_of_total_listening_time_sonic_depth_charge",
+    "category": "milestone_time",
+    "tags": "time",
+    "points": 100,
+    "iconPath": "/icons/deepdiver.png",
+    "rarity": "Legendary"
+  },
+  {
+    "title": "Gold Scholar",
+    "achievement": "Fifty Shades of Completion",
+    "flavorText": "Fifty books. Your brain is now 12% audiobook and 88% opinions. The System approves. Reluctantly.",
+    "trigger": "Finish 50 books total.",
+    "id": "finish_50_books_total_fifty_shades_of_completion",
+    "category": "milestone_books",
+    "tags": "books",
+    "points": 75,
+    "iconPath": "/icons/goldscholar.png",
+    "rarity": "Epic"
+  },
+  {
+    "title": "Series Master",
+    "achievement": "Box Set Executioner",
+    "flavorText": "Ten series completed. You don't finish stories. You hunt them.",
+    "trigger": "Finish 10 complete series.",
+    "id": "finish_10_complete_series_box_set_executioner",
+    "category": "milestone_series",
+    "tags": "series",
+    "points": 75,
+    "iconPath": "/icons/boxset.png",
+    "rarity": "Epic"
+  },
+  {
+    "title": "Backlog Resident",
+    "achievement": "Backlog Resident",
+    "flavorText": "At this point you should pay rent.",
+    "trigger": "Finish 50 books by the same author",
+    "id": "finish_50_books_by_the_same_author_backlog_resident",
+    "category": "author",
+    "tags": "author",
+    "points": 75,
+    "iconPath": "/icons/backlog.png",
+    "rarity": "Epic"
+  },
+  {
+    "title": "Franchise Loyalist",
+    "achievement": "Franchise Loyalist",
+    "flavorText": "At this point, you're their unpaid marketing team.",
+    "trigger": "Finish 5 complete series by the same author",
+    "id": "finish_5_complete_series_by_the_same_author_franchise_loyalist",
+    "category": "author",
+    "tags": "author",
+    "points": 60,
+    "iconPath": "/icons/loyalist.png",
+    "rarity": "Epic"
   },
   {
     "title": "Catching Up",
     "achievement": "Long-Form Suffering Enjoyer",
     "flavorText": "You completed a series with more than ten books. The System calls this 'endurance.' Your friends call it 'a cry for help.'",
-    "trigger": "Finish a series that has more than 10 books.",
+    "trigger": "Finish a series with more than 10 books.",
     "id": "finish_a_series_that_has_more_than_10_books_long_form_suffer",
     "category": "series_shape",
-    "tags": [],
+    "tags": "series",
     "points": 50,
-    "iconPath": "C:\\path\\to\\icons\\27.png"
+    "iconPath": "/icons/longform.png",
+    "rarity": "Epic"
   },
   {
-    "title": "Completionist Junior",
-    "achievement": "Trilogy Cleared",
-    "flavorText": "Three books. One arc. Zero restraint. The System awards you a small victory and a bigger temptation.",
-    "trigger": "Finish a trilogy.",
-    "id": "finish_a_trilogy_trilogy_cleared",
-    "category": "series_shape",
-    "tags": [],
-    "points": 15,
-    "iconPath": "C:\\path\\to\\icons\\28.png"
+    "title": "Bibliophile",
+    "achievement": "Backlist Devourer",
+    "flavorText": "Ten books by the same author. At this point you're funding their coffee habit personally.",
+    "trigger": "Finish 10 books by the same author.",
+    "id": "finish_10_books_by_the_same_author_backlist_devourer",
+    "category": "author",
+    "tags": "author",
+    "points": 40,
+    "iconPath": "/icons/biblio.png",
+    "rarity": "Rare"
+  },
+  {
+    "title": "The Epic",
+    "achievement": "Fifty-Hour Boss Fight",
+    "flavorText": "You finished a book longer than 50 hours. The System has no reward worthy of this. It offers trauma instead.",
+    "trigger": "Finish a book that is over 50 hours long.",
+    "id": "finish_a_book_that_is_over_50_hours_long_fifty_hour_boss_fig",
+    "category": "duration",
+    "tags": "duration",
+    "points": 40,
+    "iconPath": "/icons/theepic.png",
+    "rarity": "Rare"
+  },
+  {
+    "title": "Silver Scholar",
+    "achievement": "Quarter-Stacked",
+    "flavorText": "Twenty-five completions. That's not 'a phase.' That's a lifestyle choice.",
+    "trigger": "Finish 25 books total.",
+    "id": "finish_25_books_total_quarter_stacked",
+    "category": "milestone_books",
+    "tags": "books",
+    "points": 40,
+    "iconPath": "/icons/qtrstack.png",
+    "rarity": "Rare"
+  },
+  {
+    "title": "Serial Listener",
+    "achievement": "Franchise Destroyer",
+    "flavorText": "Five series completed. The System is updating your title to: 'Problematic.'",
+    "trigger": "Finish 5 complete series.",
+    "id": "finish_5_complete_series_franchise_destroyer",
+    "category": "milestone_series",
+    "tags": "series",
+    "points": 40,
+    "iconPath": "/icons/franchise.png",
+    "rarity": "Rare"
   },
   {
     "title": "Narrator Junkie",
@@ -385,365 +174,106 @@
     "trigger": "finish 10 books by the same narrator",
     "id": "finish_10_books_narrated_by_the_same_person_audio_imprint",
     "category": "narrator",
-    "tags": [],
+    "tags": "narrator",
     "points": 40,
-    "iconPath": "C:\\path\\to\\icons\\29.png"
+    "iconPath": "/icons/junkie.png",
+    "rarity": "Rare"
   },
   {
-    "title": "Series Starter",
-    "achievement": "Pilot Episode Collector",
-    "flavorText": "Five different series started. You are one bad decision away from 40 unfinished arcs.",
-    "trigger": "Finish the first book of 5 different series.",
-    "id": "finish_the_first_book_of_5_different_series_pilot_episode_co",
-    "category": "series_shape",
-    "tags": [],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\30.png"
+    "title": "Main Character Syndrome",
+    "achievement": "Main Character Syndrome",
+    "flavorText": "You don't read authors. You live in their backlog.",
+    "trigger": "Finish 20 books by the same author",
+    "id": "finish_20_books_by_the_same_author_main_character_syndrome",
+    "category": "author",
+    "tags": "author",
+    "points": 40,
+    "iconPath": "/icons/mcsyndrome.png",
+    "rarity": "Rare"
   },
   {
-    "title": "Side Quest",
-    "achievement": "Duology Speedrun",
-    "flavorText": "You completed a series with exactly two books. The System respects efficient obsession.",
-    "trigger": "Finish a series with exactly 2 books.",
-    "id": "finish_a_series_with_exactly_2_books_duology_speedrun",
-    "category": "series_shape",
-    "tags": [],
-    "points": 10,
-    "iconPath": "C:\\path\\to\\icons\\31.png"
+    "title": "Franchise Devotee",
+    "achievement": "Franchise Devotee",
+    "flavorText": "You don't follow authors. You pledge allegiance.",
+    "trigger": "Finish 3 complete series by the same author",
+    "id": "finish_3_complete_series_by_the_same_author_franchise_devotee",
+    "category": "author",
+    "tags": "author",
+    "points": 35,
+    "iconPath": "/icons/devotee.png",
+    "rarity": "Rare"
+  },
+  {
+    "title": "Extreme Binger",
+    "achievement": "Extreme Binger",
+    "flavorText": "Sleep is optional. The story is not.",
+    "trigger": "Any single listening session lasts at least 10 hours",
+    "id": "single_listening_session_10_hours_extreme_binger",
+    "category": "behavior_session",
+    "tags": "session",
+    "points": 30,
+    "iconPath": "/icons/ebinger.png",
+    "rarity": "Rare"
+  },
+  {
+    "title": "Marathon Month",
+    "achievement": "Marathon Month",
+    "flavorText": "One hundred hours in a single month. You didn't have a life that month. You had a playlist.",
+    "trigger": "Listen 100 hours in a single month",
+    "id": "listen_100_hours_in_a_month_marathon_month",
+    "category": "behavior_streak",
+    "tags": "streak",
+    "points": 50,
+    "iconPath": "/icons/mmonth.png",
+    "rarity": "Epic"
+  },
+  {
+    "title": "Century Club",
+    "achievement": "Century Club",
+    "flavorText": "One hundred books in a single year. That's not reading. That's a competitive sport.",
+    "trigger": "Finish 100 books in a single calendar year",
+    "id": "finish_100_books_in_a_year_century_club",
+    "category": "milestone_yearly",
+    "tags": "books",
+    "points": 150,
+    "iconPath": "/icons/century.png",
+    "rarity": "Legendary"
   },
   {
     "title": "The Completionist",
-    "achievement": "Series Eradicated",
-    "flavorText": "You finished an entire series. The System marks it as 'cleared' and immediately offers you three more.",
-    "trigger": "Finish all books in a single series.",
-    "id": "finish_all_books_in_a_single_series_series_eradicated",
-    "category": "misc",
-    "tags": [],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\32.png"
+    "achievement": "The Completionist",
+    "flavorText": "Fifty achievements unlocked. You didn't just play the game. You beat it. The System has nothing left to teach you.",
+    "trigger": "Earn 50 other achievements",
+    "id": "earn_50_achievements_the_completionist",
+    "category": "meta",
+    "tags": "meta",
+    "points": 100,
+    "iconPath": "/icons/completionist.png",
+    "rarity": "Legendary"
   },
   {
-    "title": "Voice of Reason",
-    "achievement": "Same Voice, Different Trauma",
-    "flavorText": "Five books with the same narrator. That voice lives in your head now. Rent-free.",
-    "trigger": "finish 5 books by the same narrator",
-    "id": "finish_5_books_narrated_by_the_same_person_same_voice_differ",
-    "category": "narrator",
-    "tags": [],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\33.png"
+    "title": "Monthly Grind",
+    "achievement": "Monthly Grind",
+    "flavorText": "Twenty days in a month. Consistency beats motivation.",
+    "trigger": "Listen on 20 distinct days in a single month",
+    "id": "listen_20_distinct_days_in_a_month_monthly_grind",
+    "category": "behavior_streak",
+    "tags": "streak",
+    "points": 30,
+    "iconPath": "/icons/grind.png",
+    "rarity": "Rare"
   },
   {
-    "title": "1% Lifesteal",
-    "achievement": "Bloodbank Closed",
-    "flavorText": "You drained every last hit point the apocalypse had to offer. The system would call the police... if anyone were still alive.",
-    "trigger": "Complete all books in 1% Lifesteal",
-    "id": "complete_all_books_in_1_lifesteal_bloodbank_closed",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
+    "title": "Committed",
+    "achievement": "Time Served",
+    "flavorText": "One hundred hours listened. That's a part-time job you volunteered for.",
+    "trigger": "Reach 100 hours of total listening time.",
+    "id": "reach_100_hours_of_total_listening_time_time_served",
+    "category": "milestone_time",
+    "tags": "time",
     "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\34.png"
-  },
-  {
-    "title": "A Learning Experience",
-    "achievement": "Trial by Captured Alien Starship",
-    "flavorText": "You skipped orientation and jumped straight to founding a civilization with stolen alien tech. Bold. Possibly illegal. Definitely impressive.",
-    "trigger": "Complete all books in A Learning Experience",
-    "id": "complete_all_books_in_a_learning_experience_trial_by_capture",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\35.png"
-  },
-  {
-    "title": "A Shrouded World",
-    "achievement": "Multiversal Exchange Student",
-    "flavorText": "You survived being kidnapped by reality itself and dropped somewhere that actively hates you. The system calls that 'character building.'",
-    "trigger": "Complete all books in A Shrouded World",
-    "id": "complete_all_books_in_a_shrouded_world_multiversal_exchange_",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\36.png"
-  },
-  {
-    "title": "A Touch of Power (Siphon)",
-    "achievement": "Totally Not Overpowered",
-    "flavorText": "You siphoned your way through an entire world while pretending you weren't terrifying. The gods noticed. They're pretending they didn't.",
-    "trigger": "Complete all books in A Touch of Power (Siphon)",
-    "id": "complete_all_books_in_a_touch_of_power_siphon_totally_not_ov",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\37.png"
-  },
-  {
-    "title": "After It Happened",
-    "achievement": "Keep Calm and Carry On (Somehow)",
-    "flavorText": "You endured the end of the world with British efficiency and a shocking lack of tea. Civilization collapsed. You didn't.",
-    "trigger": "Complete all books in After It Happened",
-    "id": "complete_all_books_in_after_it_happened_keep_calm_and_carry_",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\38.png"
-  },
-  {
-    "title": "All the Skills",
-    "achievement": "Skill Issue Resolved",
-    "flavorText": "You acquired every ability and still felt unprepared. The System confirms this is normal.",
-    "trigger": "Complete all books in All the Skills",
-    "id": "complete_all_books_in_all_the_skills_skill_issue_resolved",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\39.png"
-  },
-  {
-    "title": "Alpha LitRPG",
-    "achievement": "Pre-Release Survivor",
-    "flavorText": "You endured experimental mechanics, questionable balance, and raw chaos. Congratulations. You survived early access.",
-    "trigger": "Complete all books in Alpha LitRPG",
-    "id": "complete_all_books_in_alpha_litrpg_pre_release_survivor",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\40.png"
-  },
-  {
-    "title": "Alpha Physics",
-    "achievement": "Patch Notes Applied",
-    "flavorText": "Reality installed a new ruleset and you didn't uninstall yourself. Family reunited. Physics exploited.",
-    "trigger": "Complete all books in Alpha Physics",
-    "id": "complete_all_books_in_alpha_physics_patch_notes_applied",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\41.png"
-  },
-  {
-    "title": "Anomalies",
-    "achievement": "Statistically Impossible",
-    "flavorText": "You stared directly into unexplained phenomena and kept listening anyway. Curiosity did not kill this cat. Somehow.",
-    "trigger": "Complete all books in Anomalies",
-    "id": "complete_all_books_in_anomalies_statistically_impossible",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\42.png"
-  },
-  {
-    "title": "Apocalypse Cultivation",
-    "achievement": "Qi During End Times",
-    "flavorText": "You cultivated power while everything burned. Multitasking achieved.",
-    "trigger": "Complete all books in Apocalypse Cultivation",
-    "id": "complete_all_books_in_apocalypse_cultivation_qi_during_end_t",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\43.png"
-  },
-  {
-    "title": "Apocalypse Parenting",
-    "achievement": "Still Responsible Somehow",
-    "flavorText": "You raised children during the apocalypse. That's it. That's the achievement.",
-    "trigger": "Complete all books in Apocalypse Parenting",
-    "id": "complete_all_books_in_apocalypse_parenting_still_responsible",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\44.png"
-  },
-  {
-    "title": "Arise",
-    "achievement": "Nanites Go Brrr",
-    "flavorText": "You combined military discipline with self-replicating murder tech. The monsters never stood a chance.",
-    "trigger": "Complete all books in Arise",
-    "id": "complete_all_books_in_arise_nanites_go_brrr",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\45.png"
-  },
-  {
-    "title": "Ascend Online",
-    "achievement": "Server First: Everything",
-    "flavorText": "You didn't just play the game. You built the endgame. Other players still complain about you on forums.",
-    "trigger": "Complete all books in Ascend Online",
-    "id": "complete_all_books_in_ascend_online_server_first_everything",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\46.png"
-  },
-  {
-    "title": "Awaken Online",
-    "achievement": "Villain Arc Completed",
-    "flavorText": "You leaned into the darkness, optimized it, and called it strategy. The NPCs are terrified. The system is delighted.",
-    "trigger": "Complete all books in Awaken Online",
-    "id": "complete_all_books_in_awaken_online_villain_arc_completed",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\47.png"
-  },
-  {
-    "title": "Bad Luck Charlie (The Dragon Mage)",
-    "achievement": "Statistically Doomed",
-    "flavorText": "You were born unlucky, raised unlucky, and somehow weaponized it. The universe tried to kill you. You made it awkward.",
-    "trigger": "Complete all books in Bad Luck Charlie (The Dragon Mage)",
-    "id": "complete_all_books_in_bad_luck_charlie_the_dragon_mage_stati",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\48.png"
-  },
-  {
-    "title": "Battle Mage Farmer",
-    "achievement": "Crop Rotation: Fireball",
-    "flavorText": "You retired to farm life and immediately optimized it with violence. The land is fertile. The neighbors are afraid.",
-    "trigger": "Complete all books in Battle Mage Farmer",
-    "id": "complete_all_books_in_battle_mage_farmer_crop_rotation_fireb",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\49.png"
-  },
-  {
-    "title": "Bobiverse",
-    "achievement": "Von Neumann On Steroids",
-    "flavorText": "You copied yourself until the universe ran out of RAM. Humanity survived. Mostly because of your personality disorder.",
-    "trigger": "Complete all books in Bobiverse",
-    "id": "complete_all_books_in_bobiverse_von_neumann_on_steroids",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\50.png"
-  },
-  {
-    "title": "Challenger's Call",
-    "achievement": "Difficulty Locked to Nightmare",
-    "flavorText": "You accepted challenges no one sane would. The System stopped offering easy mode.",
-    "trigger": "Complete all books in Challenger's Call",
-    "id": "complete_all_books_in_challenger_s_call_difficulty_locked_to",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\51.png"
-  },
-  {
-    "title": "Chaos Seeds (The Land)",
-    "achievement": "Founder's Edition",
-    "flavorText": "You punched trees, named a village, and somehow became a god. The patch notes still reference you.",
-    "trigger": "Complete all books in Chaos Seeds (The Land)",
-    "id": "complete_all_books_in_chaos_seeds_the_land_founder_s_edition",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\52.png"
-  },
-  {
-    "title": "Chrysalis",
-    "achievement": "Bug Ascendant",
-    "flavorText": "You died, reincarnated as an insect, and immediately chose violence. Evolution approves of your enthusiasm.",
-    "trigger": "Complete all books in Chrysalis",
-    "id": "complete_all_books_in_chrysalis_bug_ascendant",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\53.png"
-  },
-  {
-    "title": "Completionist Chronicles",
-    "achievement": "Side Quest Hoarder",
-    "flavorText": "You didn't save the world efficiently. You saved it thoroughly.",
-    "trigger": "Complete all books in Completionist Chronicles",
-    "id": "complete_all_books_in_completionist_chronicles_side_quest_ho",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\54.png"
-  },
-  {
-    "title": "Cradle",
-    "achievement": "Advancement Addiction",
-    "flavorText": "You cultivated, advanced, ascended, and still asked, 'What's next?' The heavens regret answering.",
-    "trigger": "Complete all books in Cradle",
-    "id": "complete_all_books_in_cradle_advancement_addiction",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\55.png"
-  },
-  {
-    "title": "Defiance of the Fall",
-    "achievement": "Cosmic Middle Finger",
-    "flavorText": "You stared down the System, ignored its plans, and optimized anyway. Defiance registered. Consequences pending.",
-    "trigger": "Complete all books in Defiance of the Fall",
-    "id": "complete_all_books_in_defiance_of_the_fall_cosmic_middle_fin",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\56.png"
-  },
-  {
-    "title": "Divine Dungeon",
-    "achievement": "Sentient Real Estate",
-    "flavorText": "You became a building and immediately started murdering adventurers. Property values have never been higher.",
-    "trigger": "Complete all books in Divine Dungeon",
-    "id": "complete_all_books_in_divine_dungeon_sentient_real_estate",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\57.png"
+    "iconPath": "/icons/timeserved.png",
+    "rarity": "Uncommon"
   },
   {
     "title": "Dungeon Crawler Carl",
@@ -752,726 +282,358 @@
     "trigger": "Complete all books in Dungeon Crawler Carl",
     "id": "complete_all_books_in_dungeon_crawler_carl_donut_s_royal_cou",
     "category": "series_complete",
-    "tags": [
-      "series"
-    ],
+    "tags": "series",
     "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\58.png"
+    "iconPath": "/icons/dcc.png",
+    "rarity": "Rare"
   },
   {
-    "title": "Dungeon Lord",
-    "achievement": "Boss Room Occupied",
-    "flavorText": "You didn't raid the dungeon. You ran it. The heroes never stood a chance.",
-    "trigger": "Complete all books in Dungeon Lord",
-    "id": "complete_all_books_in_dungeon_lord_boss_room_occupied",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
+    "title": "Weekend Marathon",
+    "achievement": "Weekend Marathon",
+    "flavorText": "Weekends are for rest. You chose story.",
+    "trigger": "Listen for at least 10 hours over a single weekend",
+    "id": "weekend_listening_10_hours_weekend_marathon",
+    "category": "behavior_session",
+    "tags": "session",
     "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\59.png"
+    "iconPath": "/icons/weekend_marathon.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "Dungeon Robotics",
-    "achievement": "Automated Murder Facility",
-    "flavorText": "You replaced traps with algorithms and adventurers with data points. Efficiency achieved. Ethics not found.",
-    "trigger": "Complete all books in Dungeon Robotics",
-    "id": "complete_all_books_in_dungeon_robotics_automated_murder_faci",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\60.png"
+    "title": "Superfan",
+    "achievement": "Author Stalker (Legally)",
+    "flavorText": "Five books by the same author. You're not obsessed. You're 'consistent.'",
+    "trigger": "Finish 5 books by the same author.",
+    "id": "finish_5_books_by_the_same_author_author_stalker_legally",
+    "category": "author",
+    "tags": "author",
+    "points": 20,
+    "iconPath": "/icons/superfan.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "Eight",
-    "achievement": "Minimalist Apocalypse",
-    "flavorText": "You survived with fewer rules, fewer resources, and fewer safety nets. The System is quietly impressed.",
-    "trigger": "Complete all books in Eight",
-    "id": "complete_all_books_in_eight_minimalist_apocalypse",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\61.png"
+    "title": "The Long Haul",
+    "achievement": "Thirty-Hour Sentence",
+    "flavorText": "You finished a book longer than 30 hours. That wasn't a book. That was a hostage situation.",
+    "trigger": "Finish a book that is over 30 hours long.",
+    "id": "finish_a_book_that_is_over_30_hours_long_thirty_hour_sentenc",
+    "category": "duration",
+    "tags": "duration",
+    "points": 20,
+    "iconPath": "/icons/longhaul.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "Ether Collapse",
-    "achievement": "Magic Infrastructure Failure",
-    "flavorText": "You lived through the consequences of magical industrialization. OSHA does not exist here.",
-    "trigger": "Complete all books in Ether Collapse",
-    "id": "complete_all_books_in_ether_collapse_magic_infrastructure_fa",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\62.png"
+    "title": "The Decade",
+    "achievement": "Double Digits",
+    "flavorText": "Ten books. You've formed a habit. The System suggests you stop pretending otherwise.",
+    "trigger": "Finish 10 books total.",
+    "id": "finish_10_books_total_double_digits",
+    "category": "milestone_books",
+    "tags": "books",
+    "points": 20,
+    "iconPath": "/icons/decade.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "Everybody Loves Large Chests",
-    "achievement": "Mimic Behavior Rewarded",
-    "flavorText": "You trusted nothing, murdered everything, and were absolutely correct. The system is uncomfortable with how much you enjoyed it.",
-    "trigger": "Complete all books in Everybody Loves Large Chests",
-    "id": "complete_all_books_in_everybody_loves_large_chests_mimic_beh",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\63.png"
+    "title": "Eclectic Reader",
+    "achievement": "Eclectic Reader",
+    "flavorText": "You refuse to read the same voice twice.",
+    "trigger": "Finish books by 10 different authors",
+    "id": "finish_books_by_10_distinct_authors_eclectic_reader",
+    "category": "author",
+    "tags": "author",
+    "points": 20,
+    "iconPath": "/icons/eclectic_reader.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "Full Murderhobo",
-    "achievement": "No Moral Compass Detected",
-    "flavorText": "You solved every problem with violence and called it roleplay. The System sighs.",
-    "trigger": "Complete all books in Full Murderhobo",
-    "id": "complete_all_books_in_full_murderhobo_no_moral_compass_detec",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\64.png"
+    "title": "Page Turner",
+    "achievement": "Page Turner",
+    "flavorText": "You started it. You finished it. You slept later.",
+    "trigger": "Finish a book in a single day",
+    "id": "finish_book_in_one_day_page_turner",
+    "category": "behavior_session",
+    "tags": "session",
+    "points": 20,
+    "iconPath": "/icons/page_turner.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "He Who Fights With Monsters",
-    "achievement": "Essence of Poor Life Choices",
-    "flavorText": "You talked too much, punched gods, and somehow made friends. The monster inside you says hi.",
-    "trigger": "Complete all books in He Who Fights With Monsters",
-    "id": "complete_all_books_in_he_who_fights_with_monsters_essence_of",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\65.png"
+    "title": "Speed Reader",
+    "achievement": "Speed Reader",
+    "flavorText": "A 20-hour book in under a week. The System clocked you doing 3x the speed limit.",
+    "trigger": "Finish a book that is 20+ hours long in under 7 days",
+    "id": "finish_20h_book_under_7_days_speed_reader",
+    "category": "behavior_session",
+    "tags": "session",
+    "points": 30,
+    "iconPath": "/icons/sreader.png",
+    "rarity": "Rare"
   },
   {
-    "title": "Heaven's Laws",
-    "achievement": "Cultivation Compliance",
-    "flavorText": "You followed the rules of heaven just long enough to break them properly. The System calls this progress.",
-    "trigger": "Complete all books in Heaven's Laws",
-    "id": "complete_all_books_in_heaven_s_laws_cultivation_compliance",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\66.png"
+    "title": "Daily Listener",
+    "achievement": "Daily Listener",
+    "flavorText": "Seven days straight. The story owns your schedule now.",
+    "trigger": "Listen on 7 consecutive days",
+    "id": "listen_7_consecutive_days_daily_listener",
+    "category": "behavior_streak",
+    "tags": "streak",
+    "points": 20,
+    "iconPath": "/icons/daily_listener.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "Infinite Realm",
-    "achievement": "Dual Path Degenerate",
-    "flavorText": "You refused to choose one progression system. The System made a note.",
-    "trigger": "Complete all books in Infinite Realm",
-    "id": "complete_all_books_in_infinite_realm_dual_path_degenerate",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\67.png"
+    "title": "Iron Streak",
+    "achievement": "Iron Streak",
+    "flavorText": "Thirty days straight. At this point the audiobook is raising you.",
+    "trigger": "Listen on 30 consecutive days",
+    "id": "listen_30_consecutive_days_iron_streak",
+    "category": "behavior_streak",
+    "tags": "streak",
+    "points": 50,
+    "iconPath": "/icons/istreak.png",
+    "rarity": "Epic"
   },
   {
-    "title": "Iron Prince (Warformed)",
-    "achievement": "Combat Rating Escalated",
-    "flavorText": "You trained, suffered, adapted, and broke every metric. The academy will be adjusting its expectations.",
-    "trigger": "Complete all books in Iron Prince (Warformed)",
-    "id": "complete_all_books_in_iron_prince_warformed_combat_rating_es",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\68.png"
+    "title": "Completionist Junior",
+    "achievement": "Trilogy Cleared",
+    "flavorText": "Three books. One arc. Zero restraint. The System awards you a small victory and a bigger temptation.",
+    "trigger": "Finish a trilogy.",
+    "id": "finish_a_trilogy_trilogy_cleared",
+    "category": "series_shape",
+    "tags": "series",
+    "points": 15,
+    "iconPath": "/icons/trilogyclear.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "Jake's Magical Market",
-    "achievement": "Capitalism, But Magic",
-    "flavorText": "You sold loot, broke economies, and survived cosmic nonsense. The free market endures. Somehow.",
-    "trigger": "Complete all books in Jake's Magical Market",
-    "id": "complete_all_books_in_jake_s_magical_market_capitalism_but_m",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\69.png"
+    "title": "Binge Listener",
+    "achievement": "Binge Listener",
+    "flavorText": "Just one more chapter turned into half your day.",
+    "trigger": "Any single listening session lasts at least 5 hours",
+    "id": "single_listening_session_5_hours_binge_listener",
+    "category": "behavior_session",
+    "tags": "session",
+    "points": 15,
+    "iconPath": "/icons/binge_listener.png",
+    "rarity": "Uncommon"
   },
   {
-    "title": "Limitless Lands",
-    "achievement": "Veteran Discount Applied",
-    "flavorText": "You used experience, discipline, and war crimes to win a game. The System did not plan for this.",
-    "trigger": "Complete all books in Limitless Lands",
-    "id": "complete_all_books_in_limitless_lands_veteran_discount_appli",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\70.png"
+    "title": "Five-Pack",
+    "achievement": "Light Snack",
+    "flavorText": "Five books down. You're not addicted. You're 'committed.' That's what the addicts say.",
+    "trigger": "Finish 5 books total.",
+    "id": "finish_5_books_total_light_snack",
+    "category": "milestone_books",
+    "tags": "books",
+    "points": 10,
+    "iconPath": "/icons/lightsnack.png",
+    "rarity": "Common"
   },
   {
-    "title": "Mark of the Fool",
-    "achievement": "Strategic Underestimation",
-    "flavorText": "You were told you were useless and made it everyone else's problem. The System respects spite.",
-    "trigger": "Complete all books in Mark of the Fool",
-    "id": "complete_all_books_in_mark_of_the_fool_strategic_underestima",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\71.png"
+    "title": "1 series",
+    "achievement": "Series Eradicated",
+    "flavorText": "You finished an entire series. The System marks it 'cleared' and immediately offers you three more.",
+    "trigger": "Finish 1 complete series.",
+    "id": "finish_1_complete_series_series_eradicated",
+    "category": "milestone_series",
+    "tags": "series",
+    "points": 10,
+    "iconPath": "/icons/eradicated.png",
+    "rarity": "Common"
   },
   {
-    "title": "Master Hunter K",
-    "achievement": "One-Man Raid Group",
-    "flavorText": "You ignored teamwork and optimized lethality instead. The monsters never unionized.",
-    "trigger": "Complete all books in Master Hunter K",
-    "id": "complete_all_books_in_master_hunter_k_one_man_raid_group",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\72.png"
+    "title": "Side Quest",
+    "achievement": "Duology Speedrun",
+    "flavorText": "You completed a series with exactly two books. The System respects efficient obsession.",
+    "trigger": "Finish a series with exactly 2 books.",
+    "id": "finish_a_series_with_exactly_2_books_duology_speedrun",
+    "category": "series_shape",
+    "tags": "series",
+    "points": 10,
+    "iconPath": "/icons/sidequest.png",
+    "rarity": "Common"
   },
   {
-    "title": "Mother of Learning",
-    "achievement": "Loop Closed",
-    "flavorText": "You died, reset, learned, and optimized until reality gave up. The System stopped counting attempts.",
-    "trigger": "Complete all books in Mother of Learning",
-    "id": "complete_all_books_in_mother_of_learning_loop_closed",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\73.png"
+    "title": "Pointy Hat Approved",
+    "achievement": "Pointy Hat Approved",
+    "flavorText": "Magic detected. Hat optional.",
+    "trigger": "Finish a book with mage OR wizard OR sorcerer in the title",
+    "id": "finish_a_book_with_mage_or_wizard_pointy_hat_approved",
+    "category": "title_keyword",
+    "tags": "keyword",
+    "points": 10,
+    "iconPath": "/icons/pointy.png",
+    "rarity": "Common"
   },
   {
-    "title": "Noobtown",
-    "achievement": "Mayor of Chaos",
-    "flavorText": "You hacked the tutorial zone, rebuilt civilization, fought pirates, and negotiated with badgers. Achievement unlocked: tutorial actually completed.",
-    "trigger": "Complete all books in Noobtown",
-    "id": "complete_all_books_in_noobtown_mayor_of_chaos",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\74.png"
+    "title": "Author Collector",
+    "achievement": "Author Collector",
+    "flavorText": "Five authors. Five voices. Infinite backlog.",
+    "trigger": "Finish books by 5 different authors",
+    "id": "finish_books_by_5_distinct_authors_author_collector",
+    "category": "author",
+    "tags": "author",
+    "points": 10,
+    "iconPath": "/icons/author_collector.png",
+    "rarity": "Common"
   },
   {
-    "title": "Nova Terra",
-    "achievement": "Permanent Beta Tester",
-    "flavorText": "You played a game that refused to stay a game. Customer support is unavailable.",
-    "trigger": "Complete all books in Nova Terra",
-    "id": "complete_all_books_in_nova_terra_permanent_beta_tester",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\75.png"
+    "title": "Habit Forming",
+    "achievement": "Habit Forming",
+    "flavorText": "Three days in a row. The routine has begun.",
+    "trigger": "Listen on 3 consecutive days",
+    "id": "listen_3_consecutive_days_habit_forming",
+    "category": "behavior_streak",
+    "tags": "streak",
+    "points": 10,
+    "iconPath": "/icons/habit_forming.png",
+    "rarity": "Common"
   },
   {
-    "title": "Portal to Nova Roma",
-    "achievement": "Empire Speedrun",
-    "flavorText": "You arrived with future tech and conquered politely. History will complain later.",
-    "trigger": "Complete all books in Portal to Nova Roma",
-    "id": "complete_all_books_in_portal_to_nova_roma_empire_speedrun",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\76.png"
+    "title": "Multi-talented",
+    "achievement": "Self-Narrated Chaos",
+    "flavorText": "The author narrated their own book. Bold. Intimate. Slightly unhinged.",
+    "trigger": "Finish a book that is narrated by the author.",
+    "id": "finish_a_book_that_is_narrated_by_the_author_self_narrated_c",
+    "category": "author",
+    "tags": "author",
+    "points": 5,
+    "iconPath": "/icons/multital.png",
+    "rarity": "Common"
   },
   {
-    "title": "Primal Hunter",
-    "achievement": "Predator Status: Confirmed",
-    "flavorText": "You ignored society, embraced murder, and optimized survival. The System quietly marked you as ''concerning.'",
-    "trigger": "Complete all books in Primal Hunter",
-    "id": "complete_all_books_in_primal_hunter_predator_status_confirme",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\77.png"
+    "title": "2:00 AM: Poor Life Choices",
+    "achievement": "Just One More Chapter",
+    "flavorText": "You listened past 2 AM on a weeknight. Tomorrow-you is furious. The System is delighted.",
+    "trigger": "User has any listening session that reaches = 2:00 AM America/New_York, where the local day is Monday - Friday.",
+    "id": "user_has_any_listening_session_that_reaches_2_00_am_america_",
+    "category": "behavior_time",
+    "tags": "time",
+    "points": 5,
+    "iconPath": "/icons/latenight.png",
+    "rarity": "Common"
   },
   {
-    "title": "Reborn: Apocalypse",
-    "achievement": "Second Chance Optimized",
-    "flavorText": "You remembered the end of the world and decided to do better. The System noticed. It's annoyed.",
-    "trigger": "Complete all books in Reborn: Apocalypse",
-    "id": "complete_all_books_in_reborn_apocalypse_second_chance_optimi",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\78.png"
+    "title": "Early Bird",
+    "achievement": "Early Bird",
+    "flavorText": "Listening before 6 AM. The sun isn't even up yet but your TBR doesn't care.",
+    "trigger": "User has any listening session starting before 6:00 AM America/New_York",
+    "id": "listening_session_before_6am_early_bird",
+    "category": "behavior_time",
+    "tags": "time",
+    "points": 5,
+    "iconPath": "/icons/ebird.png",
+    "rarity": "Common"
   },
   {
-    "title": "Savage Dominion",
-    "achievement": "Brute Force Solution",
-    "flavorText": "You solved progression with violence and refused to apologize. The System considers this efficient.",
-    "trigger": "Complete all books in Savage Dominion",
-    "id": "complete_all_books_in_savage_dominion_brute_force_solution",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\79.png"
+    "title": "Novella Collector",
+    "achievement": "Bite-Sized Binge",
+    "flavorText": "Five short books down. You're basically speedrunning literature.",
+    "trigger": "Finish 5 books that are under 5 hours long.",
+    "id": "finish_5_books_that_are_under_5_hours_long_bite_sized_binge",
+    "category": "duration",
+    "tags": "duration",
+    "points": 5,
+    "iconPath": "/icons/bitesized.png",
+    "rarity": "Common"
   },
   {
-    "title": "Shadow Sun",
-    "achievement": "Light Optional",
-    "flavorText": "You watched civilization collapse and adapted faster than most people would prefer. The sun dimmed. You did not.",
-    "trigger": "Complete all books in Shadow Sun",
-    "id": "complete_all_books_in_shadow_sun_light_optional",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\80.png"
+    "title": "Short & Sweet",
+    "achievement": "Snack-Sized Violence",
+    "flavorText": "You finished a book under 3 hours. Quick. Clean. Suspiciously efficient.",
+    "trigger": "Finish a book that is under 3 hours long.",
+    "id": "finish_a_book_that_is_under_3_hours_long_snack_sized_violenc",
+    "category": "duration",
+    "tags": "duration",
+    "points": 5,
+    "iconPath": "/icons/shortsweet.png",
+    "rarity": "Common"
   },
   {
-    "title": "Shadowcroft Academy for Dungeons",
-    "achievement": "Educational Trauma",
-    "flavorText": "You enrolled in a school where failure means death. Graduation rates remain 'selective.'",
-    "trigger": "Complete all books in Shadowcroft Academy for Dungeons",
-    "id": "complete_all_books_in_shadowcroft_academy_for_dungeons_educa",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\81.png"
+    "title": "20 books",
+    "achievement": "Twenty Questions, Zero Regrets",
+    "flavorText": "Twenty books finished. You now have opinions on narrators you've never met. The System approves of your confidence.",
+    "trigger": "Finish 20 audiobooks total.",
+    "id": "finish_20_audiobooks_total_twenty_questions_zero_regrets",
+    "category": "milestone_books",
+    "tags": "books",
+    "points": 5,
+    "iconPath": "/icons/20books.png",
+    "rarity": "Common"
   },
   {
-    "title": "Sky Realms Online",
-    "achievement": "Gravity Is a Suggestion",
-    "flavorText": "You conquered floating worlds and airborne nonsense. Physics filed a complaint.",
-    "trigger": "Complete all books in Sky Realms Online",
-    "id": "complete_all_books_in_sky_realms_online_gravity_is_a_suggest",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\82.png"
+    "title": "First Word",
+    "achievement": "Tutorial: Complete",
+    "flavorText": "You finished your first audiobook. The System is proud. Don't get used to it.",
+    "trigger": "Finish 1 audiobook.",
+    "id": "finish_your_first_audiobook_tutorial_complete",
+    "category": "milestone_books",
+    "tags": "books",
+    "points": 5,
+    "iconPath": "/icons/tutorial.png",
+    "rarity": "Common"
   },
   {
-    "title": "Solo Leveling",
-    "achievement": "System's Favorite Child",
-    "flavorText": "You leveled alone, broke scaling, and became a problem. Balance no longer applies to you.",
-    "trigger": "Complete all books in Solo Leveling",
-    "id": "complete_all_books_in_solo_leveling_system_s_favorite_child",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\83.png"
+    "title": "15 series",
+    "achievement": "Serial Offender",
+    "flavorText": "Fifteen series. That's not dedication. That's a condition. The System recommends sunlight.",
+    "trigger": "Finish 15 complete series.",
+    "id": "finish_15_complete_series_serial_offender",
+    "category": "milestone_series",
+    "tags": "series",
+    "points": 5,
+    "iconPath": "/icons/serialoff.png",
+    "rarity": "Common"
   },
   {
-    "title": "Spellheart",
-    "achievement": "Magical Cardiac Event",
-    "flavorText": "You bound power directly to your survival. Stress tests failed. Repeatedly.",
-    "trigger": "Complete all books in Spellheart",
-    "id": "complete_all_books_in_spellheart_magical_cardiac_event",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\84.png"
+    "title": "2 series",
+    "achievement": "Double Feature",
+    "flavorText": "Two series down. You're officially the kind of person who says, 'I'll just start the next one.' The System smiles.",
+    "trigger": "Finish 2 complete series.",
+    "id": "finish_2_complete_series_double_feature",
+    "category": "milestone_series",
+    "tags": "series",
+    "points": 5,
+    "iconPath": "/icons/doublefeature.png",
+    "rarity": "Common"
   },
   {
-    "title": "Spellmonger",
-    "achievement": "Arcane Logistics Manager",
-    "flavorText": "You juggled magic, politics, logistics, and existential threats. Turns out spellcasting is the easy part.",
-    "trigger": "Complete all books in Spellmonger",
-    "id": "complete_all_books_in_spellmonger_arcane_logistics_manager",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\85.png"
+    "title": "20 series",
+    "achievement": "Saga Collector",
+    "flavorText": "Twenty series finished. You've lived multiple lifetimes and still have backlog. The System nods knowingly.",
+    "trigger": "Finish 20 complete series.",
+    "id": "finish_20_complete_series_saga_collector",
+    "category": "milestone_series",
+    "tags": "series",
+    "points": 5,
+    "iconPath": "/icons/sagacoll.png",
+    "rarity": "Common"
   },
   {
-    "title": "Spellmonger: Hawkmaiden",
-    "achievement": "Air Superiority Established",
-    "flavorText": "You followed the side quest that somehow became a main campaign. The skies are secure. Mostly.",
-    "trigger": "Complete all books in Spellmonger: Hawkmaiden",
-    "id": "complete_all_books_in_spellmonger_hawkmaiden_air_superiority",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\86.png"
+    "title": "Series Starter",
+    "achievement": "Pilot Episode Collector",
+    "flavorText": "Five different series started. You are one bad decision away from 40 unfinished arcs.",
+    "trigger": "Finish the first book of 5 different series.",
+    "id": "finish_the_first_book_of_5_different_series_pilot_episode_co",
+    "category": "series_shape",
+    "tags": "series",
+    "points": 5,
+    "iconPath": "/icons/pilotep.png",
+    "rarity": "Common"
   },
   {
-    "title": "Spellmonger: Legacy",
-    "achievement": "Inheritance Complicated",
-    "flavorText": "You learned that legacies are messy and power never comes clean. The System approves of the paperwork.",
-    "trigger": "Complete all books in Spellmonger: Legacy",
-    "id": "complete_all_books_in_spellmonger_legacy_inheritance_complic",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\87.png"
-  },
-  {
-    "title": "Spellmonger: Shadowmage",
-    "achievement": "Subtlety Is Optional",
-    "flavorText": "You navigated intrigue with magic sharp enough to cut through politics. The shadows noticed.",
-    "trigger": "Complete all books in Spellmonger: Shadowmage",
-    "id": "complete_all_books_in_spellmonger_shadowmage_subtlety_is_opt",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\88.png"
-  },
-  {
-    "title": "Station 64 (The Doll Dungeon)",
-    "achievement": "Do Not Touch the Dolls",
-    "flavorText": "You ignored every warning sign and continued anyway. The dungeon remembers your bravery. And your screams.",
-    "trigger": "Complete all books in Station 64 (The Doll Dungeon)",
-    "id": "complete_all_books_in_station_64_the_doll_dungeon_do_not_tou",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\89.png"
-  },
-  {
-    "title": "Street Cultivation",
-    "achievement": "Urban Qi Management",
-    "flavorText": "You cultivated in a world that runs on rent and regret. Balance achieved. Temporarily.",
-    "trigger": "Complete all books in Street Cultivation",
-    "id": "complete_all_books_in_street_cultivation_urban_qi_management",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\90.png"
-  },
-  {
-    "title": "Super Powereds",
-    "achievement": "Four-Year Survival Program",
-    "flavorText": "You survived college with superpowers and emotional damage. Statistically improbable.",
-    "trigger": "Complete all books in Super Powereds",
-    "id": "complete_all_books_in_super_powereds_four_year_survival_prog",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\91.png"
-  },
-  {
-    "title": "System Apocalypse",
-    "achievement": "Tutorial Failed Successfully",
-    "flavorText": "The System arrived. Society didn't make it. You adapted. Aggressively.",
-    "trigger": "Complete all books in System Apocalypse",
-    "id": "complete_all_books_in_system_apocalypse_tutorial_failed_succ",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\92.png"
-  },
-  {
-    "title": "The Bad Guys",
-    "achievement": "Villain With Benefits",
-    "flavorText": "You chose profit over morals and somehow improved the world. The System shrugs.",
-    "trigger": "Complete all books in The Bad Guys",
-    "id": "complete_all_books_in_the_bad_guys_villain_with_benefits",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\93.png"
-  },
-  {
-    "title": "The Completionist Chronicles",
-    "achievement": "Yes, Even That Quest",
-    "flavorText": "You refused to leave content unfinished. The System ran out of side quests.",
-    "trigger": "Complete all books in The Completionist Chronicles",
-    "id": "complete_all_books_in_the_completionist_chronicles_yes_even_",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\94.png"
-  },
-  {
-    "title": "The Divine Apostasy",
-    "achievement": "Faith Optional",
-    "flavorText": "You questioned divinity, optimized magic, and kept moving. The gods are uncomfortable.",
-    "trigger": "Complete all books in The Divine Apostasy",
-    "id": "complete_all_books_in_the_divine_apostasy_faith_optional",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\95.png"
-  },
-  {
-    "title": "The Good Guys",
-    "achievement": "Heroic Intent, Questionable Execution",
-    "flavorText": "You tried to do the right thing. Collateral damage occurred.",
-    "trigger": "Complete all books in The Good Guys",
-    "id": "complete_all_books_in_the_good_guys_heroic_intent_questionab",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\96.png"
-  },
-  {
-    "title": "The Grand Game",
-    "achievement": "Participation Was Mandatory",
-    "flavorText": "You didn't ask to play. The System didn't care.",
-    "trigger": "Complete all books in The Grand Game",
-    "id": "complete_all_books_in_the_grand_game_participation_was_manda",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\97.png"
-  },
-  {
-    "title": "The Infinite World",
-    "achievement": "Existence Successfully Parsed",
-    "flavorText": "You learned what you were, where you were, and why that was bad. Understanding achieved. Safety not included.",
-    "trigger": "Complete all books in The Infinite World",
-    "id": "complete_all_books_in_the_infinite_world_existence_successfu",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\98.png"
-  },
-  {
-    "title": "The Last Physicist",
-    "achievement": "Science Still Works",
-    "flavorText": "You applied math to magic and made reality uncomfortable. Peer review is pending.",
-    "trigger": "Complete all books in The Last Physicist",
-    "id": "complete_all_books_in_the_last_physicist_science_still_works",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\99.png"
-  },
-  {
-    "title": "The Legend of Randidly Ghosthound",
-    "achievement": "Name Still Ridiculous",
-    "flavorText": "You cultivated power, destiny, and an unforgettable alias. The System will never stop judging it.",
-    "trigger": "Complete all books in The Legend of Randidly Ghosthound",
-    "id": "complete_all_books_in_the_legend_of_randidly_ghosthound_name",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\100.png"
-  },
-  {
-    "title": "The Path of Ascension",
-    "achievement": "Heavenward Grindset",
-    "flavorText": "You climbed tiers, broke ceilings, and refused to slow down. The System updated its expectations.",
-    "trigger": "Complete all books in The Path of Ascension",
-    "id": "complete_all_books_in_the_path_of_ascension_heavenward_grind",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\101.png"
-  },
-  {
-    "title": "The Perfect Run",
-    "achievement": "Save Scumming Approved",
-    "flavorText": "You died repeatedly until reality behaved itself. The System refuses to comment.",
-    "trigger": "Complete all books in The Perfect Run",
-    "id": "complete_all_books_in_the_perfect_run_save_scumming_approved",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\102.png"
-  },
-  {
-    "title": "The Ripple System",
-    "achievement": "Aggroed the Internet",
-    "flavorText": "You min-maxed so hard the forums are still arguing about it. The System doesn't care. The comments section does.",
-    "trigger": "Complete all books in The Ripple System",
-    "id": "complete_all_books_in_the_ripple_system_aggroed_the_internet",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\103.png"
-  },
-  {
-    "title": "The Ten Realms",
-    "achievement": "Military Grade Cultivation",
-    "flavorText": "You brought tactics, logistics, and discipline to immortality. The heavens were unprepared.",
-    "trigger": "Complete all books in The Ten Realms",
-    "id": "complete_all_books_in_the_ten_realms_military_grade_cultivat",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\104.png"
-  },
-  {
-    "title": "The Wandering Inn",
-    "achievement": "Slice of Life, Extra Trauma",
-    "flavorText": "You thought it was cozy. The world disagreed.",
-    "trigger": "Complete all books in The Wandering Inn",
-    "id": "complete_all_books_in_the_wandering_inn_slice_of_life_extra_",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\105.png"
-  },
-  {
-    "title": "Tower of Somnus",
-    "achievement": "Sleep Is Optional",
-    "flavorText": "You fought wars while unconscious and still showed up to work. Capitalism applauds your suffering.",
-    "trigger": "Complete all books in Tower of Somnus",
-    "id": "complete_all_books_in_tower_of_somnus_sleep_is_optional",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\106.png"
-  },
-  {
-    "title": "Unbound",
-    "achievement": "Stat Ceiling Ignored",
-    "flavorText": "You broke limits the System explicitly asked you not to. Warnings were issued. You ignored them.",
-    "trigger": "Complete all books in Unbound",
-    "id": "complete_all_books_in_unbound_stat_ceiling_ignored",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\107.png"
-  },
-  {
-    "title": "Underworld (Apollos Thorne)",
-    "achievement": "Death, Optimized",
-    "flavorText": "You made the afterlife look like a productivity seminar. The System took notes.",
-    "trigger": "Complete all books in Underworld",
-    "id": "complete_all_books_in_underworld_death_optimized",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\108.png"
-  },
-  {
-    "title": "Unorthodox Farming",
-    "achievement": "Agricultural Heresy",
-    "flavorText": "You farmed wrong on purpose and won anyway. The land is confused but productive.",
-    "trigger": "Complete all books in Unorthodox Farming",
-    "id": "complete_all_books_in_unorthodox_farming_agricultural_heresy",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\109.png"
-  },
-  {
-    "title": "Vainqueur the Dragon",
-    "achievement": "Greed Justified",
-    "flavorText": "You followed a dragon whose motivations were refreshingly honest. Loot acquired. Lessons questionable.",
-    "trigger": "Complete all books in Vainqueur the Dragon",
-    "id": "complete_all_books_in_vainqueur_the_dragon_greed_justified",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\110.png"
-  },
-  {
-    "title": "Way of the Shaman",
-    "achievement": "PvP Flag: Permanent",
-    "flavorText": "You were trapped, exploited, and still turned the tables. The admins are watching. Closely.",
-    "trigger": "Complete all books in Way of the Shaman",
-    "id": "complete_all_books_in_way_of_the_shaman_pvp_flag_permanent",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\111.png"
-  },
-  {
-    "title": "World Tree Online",
-    "achievement": "Legacy Build Preserved",
-    "flavorText": "You played the long game while everyone else chased DPS. The world ended. Your save file didn't.",
-    "trigger": "Complete all books in World Tree Online",
-    "id": "complete_all_books_in_world_tree_online_legacy_build_preserv",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\112.png"
-  },
-  {
-    "title": "Xanth",
-    "achievement": "Pun Appreciated",
-    "flavorText": "You endured puns, magic, and questionable narrative decisions. The System grants you emotional resilience.",
-    "trigger": "Complete all books in Xanth",
-    "id": "complete_all_books_in_xanth_pun_appreciated",
-    "category": "series_complete",
-    "tags": [
-      "series"
-    ],
-    "points": 25,
-    "iconPath": "C:\\path\\to\\icons\\113.png"
+    "title": "Voice of Reason",
+    "achievement": "Same Voice, Different Trauma",
+    "flavorText": "Five books with the same narrator. That voice lives in your head now. Rent-free.",
+    "trigger": "finish 5 books by the same narrator",
+    "id": "finish_5_books_narrated_by_the_same_person_same_voice_differ",
+    "category": "narrator",
+    "tags": "narrator",
+    "points": 5,
+    "iconPath": "/icons/voiceofreason.png",
+    "rarity": "Common"
   },
   {
     "title": "Mutual Book Trauma",
@@ -1480,11 +642,22 @@
     "trigger": "For user U, for every other user V: completed(U) n completed(V) ? Ø",
     "id": "for_user_u_for_every_other_user_v_completed_u_completed_v_so",
     "category": "social",
-    "tags": [
-      "social"
-    ],
+    "tags": "social",
     "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\114.png"
+    "iconPath": "/icons/social.png",
+    "rarity": "Common"
+  },
+  {
+    "title": "Shared Experience",
+    "achievement": "Shared Experience",
+    "flavorText": "Two minds. One book. Same week. The System suspects a book club.",
+    "trigger": "Two users finish the same book within the same week",
+    "id": "two_users_finish_same_book_same_week_shared_experience",
+    "category": "social",
+    "tags": "social",
+    "points": 15,
+    "iconPath": "/icons/sharedexp.png",
+    "rarity": "Uncommon"
   },
   {
     "title": "Dragon Rider",
@@ -1493,14 +666,10 @@
     "trigger": "Finish a book with 'Dragon' in the title.",
     "id": "finish_a_book_with_dragon_in_the_title_scales_and_bad_decisi",
     "category": "title_keyword",
-    "tags": [
-      "keyword"
-    ],
+    "tags": "keyword",
     "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\115.png",
-    "keywords_any": [
-      "dragon"
-    ]
+    "iconPath": "/icons/dragonrider.png",
+    "rarity": "Common"
   },
   {
     "title": "Interstellar",
@@ -1509,236 +678,9 @@
     "trigger": "Finish a book with 'Space,' 'Galaxy,' or 'Star' in the title.",
     "id": "finish_a_book_with_space_galaxy_or_star_in_the_title_in_spac",
     "category": "title_keyword",
-    "tags": [
-      "keyword"
-    ],
+    "tags": "keyword",
     "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\116.png",
-    "keywords_any": [
-      "space,' 'galaxy,",
-      "star"
-    ]
-  },
-  {
-    "title": "Magic User",
-    "achievement": "Pointy Hat Approved",
-    "flavorText": "You finished a book with 'Mage' or 'Wizard' in the title. The System grants you +1 smugness.",
-    "trigger": "Finish a book with 'Mage' or 'Wizard' in the title.",
-    "id": "finish_a_book_with_mage_or_wizard_in_the_title_pointy_hat_ap",
-    "category": "title_keyword",
-    "tags": [
-      "keyword"
-    ],
-    "points": 5,
-    "iconPath": "C:\\path\\to\\icons\\117.png",
-    "keywords_any": [
-      "mage",
-      "wizard"
-    ]
-  },
-  {
-    "id": "finish_books_by_5_distinct_authors_author_collector",
-    "category": "author",
-    "title": "Author Collector",
-    "achievement": "Author Collector",
-    "flavorText": "Five authors. Five voices. Infinite backlog.",
-    "trigger": "Finish books by 5 different authors",
-    "points": 10,
-    "iconPath": "icons/author_collector.png",
-    "tags": [
-      "author",
-      "variety"
-    ]
-  },
-  {
-    "id": "finish_books_by_10_distinct_authors_eclectic_reader",
-    "category": "author",
-    "title": "Eclectic Reader",
-    "achievement": "Eclectic Reader",
-    "flavorText": "You refuse to read the same voice twice.",
-    "trigger": "Finish books by 10 different authors",
-    "points": 20,
-    "iconPath": "icons/eclectic_reader.png",
-    "tags": [
-      "author",
-      "variety"
-    ]
-  },
-  {
-    "id": "single_listening_session_5_hours_binge_listener",
-    "category": "behavior_session",
-    "title": "Binge Listener",
-    "achievement": "Binge Listener",
-    "flavorText": "Just one more chapter turned into half your day.",
-    "trigger": "Any single listening session lasts at least 5 hours",
-    "points": 15,
-    "iconPath": "icons/binge_listener.png",
-    "tags": [
-      "session",
-      "behavior"
-    ]
-  },
-  {
-    "id": "single_listening_session_10_hours_extreme_binger",
-    "category": "behavior_session",
-    "title": "Extreme Binger",
-    "achievement": "Extreme Binger",
-    "flavorText": "Sleep is optional. The story is not.",
-    "trigger": "Any single listening session lasts at least 10 hours",
-    "points": 30,
-    "iconPath": "icons/extreme_binger.png",
-    "tags": [
-      "session",
-      "behavior"
-    ]
-  },
-  {
-    "id": "weekend_listening_10_hours_weekend_marathon",
-    "category": "behavior_session",
-    "title": "Weekend Marathon",
-    "achievement": "Weekend Marathon",
-    "flavorText": "Weekends are for rest. You chose story.",
-    "trigger": "Listen for at least 10 hours over a single weekend",
-    "points": 25,
-    "iconPath": "icons/weekend_marathon.png",
-    "tags": [
-      "session",
-      "behavior",
-      "weekend"
-    ]
-  },
-  {
-    "id": "finish_book_in_one_day_page_turner",
-    "category": "behavior_session",
-    "title": "Page Turner",
-    "achievement": "Page Turner",
-    "flavorText": "You started it. You finished it. You slept later.",
-    "trigger": "Finish a book in a single day",
-    "points": 20,
-    "iconPath": "icons/page_turner.png",
-    "tags": [
-      "session",
-      "behavior",
-      "completion"
-    ]
-  },
-  {
-    "id": "finish_a_book_with_mage_or_wizard_pointy_hat_approved",
-    "category": "title_keyword",
-    "title": "Pointy Hat Approved",
-    "achievement": "Pointy Hat Approved",
-    "flavorText": "Magic detected. Hat optional.",
-    "trigger": "Finish a book with mage OR wizard OR sorcerer in the title",
-    "keywords_any": [
-      "mage",
-      "sorcerer",
-      "wizard"
-    ],
-    "points": 10,
-    "iconPath": "icons/pointy_hat.png",
-    "tags": [
-      "keyword",
-      "magic"
-    ]
-  },
-  {
-    "id": "listen_3_consecutive_days_habit_forming",
-    "category": "behavior_streak",
-    "title": "Habit Forming",
-    "achievement": "Habit Forming",
-    "flavorText": "Three days in a row. The routine has begun.",
-    "trigger": "Listen on 3 consecutive days",
-    "points": 10,
-    "iconPath": "icons/habit_forming.png",
-    "tags": [
-      "streak",
-      "behavior"
-    ]
-  },
-  {
-    "id": "listen_7_consecutive_days_daily_listener",
-    "category": "behavior_streak",
-    "title": "Daily Listener",
-    "achievement": "Daily Listener",
-    "flavorText": "Seven days straight. The story owns your schedule now.",
-    "trigger": "Listen on 7 consecutive days",
-    "points": 20,
-    "iconPath": "icons/daily_listener.png",
-    "tags": [
-      "streak",
-      "behavior"
-    ]
-  },
-  {
-    "id": "listen_20_distinct_days_in_a_month_monthly_grind",
-    "category": "behavior_streak",
-    "title": "Monthly Grind",
-    "achievement": "Monthly Grind",
-    "flavorText": "Twenty days in a month. Consistency beats motivation.",
-    "trigger": "Listen on 20 distinct days in a single month",
-    "points": 30,
-    "iconPath": "icons/monthly_grind.png",
-    "tags": [
-      "streak",
-      "behavior"
-    ]
-  },
-  {
-    "id": "finish_20_books_by_the_same_author_main_character_syndrome",
-    "category": "author",
-    "title": "Main Character Syndrome",
-    "achievement": "Main Character Syndrome",
-    "flavorText": "You don’t read authors. You live in their backlog.",
-    "trigger": "Finish 20 books by the same author",
-    "points": 40,
-    "iconPath": "icons/main_character_syndrome.png",
-    "tags": [
-      "author",
-      "loyalty"
-    ]
-  },
-  {
-    "id": "finish_50_books_by_the_same_author_backlog_resident",
-    "category": "author",
-    "title": "Backlog Resident",
-    "achievement": "Backlog Resident",
-    "flavorText": "At this point you should pay rent.",
-    "trigger": "Finish 50 books by the same author",
-    "points": 75,
-    "iconPath": "icons/backlog_resident.png",
-    "tags": [
-      "author",
-      "loyalty"
-    ]
-  },
-  {
-    "id": "finish_3_complete_series_by_the_same_author_franchise_devotee",
-    "category": "author",
-    "title": "Franchise Devotee",
-    "achievement": "Franchise Devotee",
-    "flavorText": "You don’t follow authors. You pledge allegiance.",
-    "trigger": "Finish 3 complete series by the same author",
-    "points": 35,
-    "iconPath": "icons/franchise_devotee.png",
-    "tags": [
-      "author",
-      "series",
-      "loyalty"
-    ]
-  },
-  {
-    "id": "finish_5_complete_series_by_the_same_author_franchise_loyalist",
-    "category": "author",
-    "title": "Franchise Loyalist",
-    "achievement": "Franchise Loyalist",
-    "flavorText": "At this point, you’re their unpaid marketing team.",
-    "trigger": "Finish 5 complete series by the same author",
-    "points": 60,
-    "iconPath": "icons/franchise_loyalist.png",
-    "tags": [
-      "author",
-      "series",
-      "loyalty"
-    ]
+    "iconPath": "/icons/galaxy.png",
+    "rarity": "Common"
   }
 ]
