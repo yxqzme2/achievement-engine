@@ -98,7 +98,15 @@ if [ -n "$smtp_host" ]; then
   echo "Format: absuser1:user1@email.com,absuser2:user2@email.com"
   read -rp "User emails: " user_emails
   echo ""
-  echo "  -> Email notifications enabled"
+  echo "For testing, you can send ALL notification emails to a single address."
+  echo "(Press Enter to skip — emails will go to each user's address above)"
+  read -rp "Override all emails to this address: " smtp_to_override
+  echo ""
+  if [ -n "$smtp_to_override" ]; then
+    echo "  -> Email notifications enabled (all emails -> ${smtp_to_override})"
+  else
+    echo "  -> Email notifications enabled"
+  fi
 else
   echo "  -> Email notifications skipped"
 fi
@@ -156,6 +164,9 @@ if [ -n "$smtp_host" ]; then
   sed -i "s|^SMTP_FROM=.*|SMTP_FROM=${smtp_from}|" .env
   if [ -n "$user_emails" ]; then
     sed -i "s|^USER_EMAILS=.*|USER_EMAILS=${user_emails}|" .env
+  fi
+  if [ -n "$smtp_to_override" ]; then
+    sed -i "s|^SMTP_TO_OVERRIDE=.*|SMTP_TO_OVERRIDE=${smtp_to_override}|" .env
   fi
 fi
 
