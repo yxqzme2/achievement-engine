@@ -82,6 +82,28 @@ echo "(Press Enter to skip)"
 read -rp "User aliases: " user_aliases
 echo ""
 
+echo "--- Optional: Email Notifications ---"
+echo "Send email alerts when achievements are earned."
+echo "(Press Enter to skip all email settings)"
+read -rp "SMTP server hostname (e.g. smtp.gmail.com): " smtp_host
+
+if [ -n "$smtp_host" ]; then
+  read -rp "SMTP port [587]: " smtp_port
+  smtp_port="${smtp_port:-587}"
+  read -rp "SMTP username: " smtp_username
+  read -rp "SMTP password: " smtp_password
+  read -rp "From email address: " smtp_from
+  echo ""
+  echo "Map usernames to email addresses for notifications."
+  echo "Format: absuser1:user1@email.com,absuser2:user2@email.com"
+  read -rp "User emails: " user_emails
+  echo ""
+  echo "  -> Email notifications enabled"
+else
+  echo "  -> Email notifications skipped"
+fi
+echo ""
+
 # --- Write docker-compose.override.yml with actual values ---
 # (keeps docker-compose.yml clean for git)
 cat > docker-compose.override.yml <<EOF
@@ -124,6 +146,17 @@ fi
 
 if [ -n "$discord_webhook" ]; then
   sed -i "s|^DISCORD_PROXY_URL=.*|DISCORD_PROXY_URL=http://abs-stats:3000/api/discord-notify|" .env
+fi
+
+if [ -n "$smtp_host" ]; then
+  sed -i "s|^SMTP_HOST=.*|SMTP_HOST=${smtp_host}|" .env
+  sed -i "s|^SMTP_PORT=.*|SMTP_PORT=${smtp_port}|" .env
+  sed -i "s|^SMTP_USERNAME=.*|SMTP_USERNAME=${smtp_username}|" .env
+  sed -i "s|^SMTP_PASSWORD=.*|SMTP_PASSWORD=${smtp_password}|" .env
+  sed -i "s|^SMTP_FROM=.*|SMTP_FROM=${smtp_from}|" .env
+  if [ -n "$user_emails" ]; then
+    sed -i "s|^USER_EMAILS=.*|USER_EMAILS=${user_emails}|" .env
+  fi
 fi
 
 echo "Updated .env with your settings."
