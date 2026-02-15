@@ -28,14 +28,81 @@ The repo contains two services that work together:
 
 ## Prerequisites
 
-- Docker and Docker Compose
+**For all installation methods:**
 - A running [Audiobookshelf](https://www.audiobookshelf.org/) server
-- An Audiobookshelf API token (Settings > Users > your user > API Token)
-- You will need a token for every user
+- An Audiobookshelf API token for each user you want to track (Settings > Users > [user] > API Token)
+
+**For Unraid (Option A):**
+- [Unraid](https://unraid.net/) 6.10 or later
+- Access to your Unraid flash drive (via network share or terminal)
+
+**For Docker Compose (Options B & C):**
+- Docker and Docker Compose installed on your system
+- Git (to clone the repo)
 
 ## Quick Start
 
-### Option A: Interactive setup (recommended)
+### Option A: Unraid
+
+If you're running [Unraid](https://unraid.net/), you can install both containers using the provided templates.
+
+**What you need before starting:**
+- Your Audiobookshelf server URL (e.g. `http://192.168.1.50:13378`)
+- An API token for each user you want to track (Audiobookshelf > Settings > Users > [user] > API Token)
+- *(Optional)* A Discord webhook URL for notifications
+- *(Optional)* SMTP credentials for email notifications (see [Setting Up Notifications](#setting-up-notifications))
+
+**Step 1: Download the templates**
+
+Download both XML files from the [`unraid-templates/`](unraid-templates/) folder in this repo:
+- [`abs-stats.xml`](https://raw.githubusercontent.com/yxqzme2/achievement-engine/main/unraid-templates/abs-stats.xml)
+- [`achievement-engine.xml`](https://raw.githubusercontent.com/yxqzme2/achievement-engine/main/unraid-templates/achievement-engine.xml)
+
+**Step 2: Copy templates to your Unraid flash drive**
+
+Copy both XML files to your Unraid flash drive's template directory. You can access this via network share:
+
+```
+\\YOUR-UNRAID-IP\flash\config\plugins\dockerMan\templates-user\
+```
+
+Or via the Unraid terminal:
+
+```bash
+# From another machine, or use the Unraid terminal
+cp abs-stats.xml /boot/config/plugins/dockerMan/templates-user/
+cp achievement-engine.xml /boot/config/plugins/dockerMan/templates-user/
+```
+
+**Step 3: Install abs-stats (install this first)**
+
+1. Go to the **Docker** tab in Unraid
+2. Click **Add Container**
+3. Select **abs-stats** from the **Template** dropdown
+4. Fill in your settings:
+   - **ABS_URL** — your Audiobookshelf server URL
+   - **ABS_TOKEN** — a single API token (for single-user), OR
+   - **ABS_TOKENS** — multiple tokens in `username1:token1,username2:token2` format
+   - **ENGINE_URL** — leave as `http://achievement-engine:8000` (default)
+5. Make sure both containers are on the **same Docker network**
+6. Click **Apply**
+
+**Step 4: Install achievement-engine**
+
+1. Click **Add Container** again
+2. Select **achievement-engine** from the **Template** dropdown
+3. Fill in your settings:
+   - **ABSSTATS_BASE_URL** — leave as `http://abs-stats:3000` (default)
+   - **USER_ALIASES** — friendly display names (e.g. `absuser1:Daniel,absuser2:Darrell`)
+   - Configure email/Discord settings if desired (every field has a description in the template)
+4. Make sure it's on the **same Docker network** as abs-stats
+5. Click **Apply**
+
+**Step 5: Open the dashboard**
+
+Navigate to `http://YOUR-UNRAID-IP:8000` in your browser. Achievements will start appearing after the first poll cycle (5 minutes by default).
+
+### Option B: Docker Compose — Interactive setup (recommended)
 
 ```bash
 git clone https://github.com/yxqzme2/achievement-engine.git
@@ -47,7 +114,7 @@ docker compose up -d
 
 The setup script will prompt you for your Audiobookshelf URL, API tokens, and optional settings. It creates `.env` and `docker-compose.override.yml` with your values.
 
-### Option B: Manual setup
+### Option C: Docker Compose — Manual setup
 
 ```bash
 # 1. Clone the repo
